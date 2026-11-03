@@ -1,69 +1,140 @@
 # Craig Bloomfield proposal website
 
-Prepared November 3, 2026. Implementation handoff for Opus 5.5.
+Prepared November 3, 2026. Implementation handoff for Opus 5.5. Revised November 3, 2026 to lead with outcomes (see “Revision: outcomes first”).
 
 ## Brief and boundaries
 
 Build one static proposal page for Craig Bloomfield, from Bryan Bryce / Bryce Labs LLC. Craig should understand the proposed result, see an example, understand the cost, and know how to reply. This is a visual proposal before the agreement, not a working financial dashboard or a contract acceptance flow.
 
-Content authority: `../phase1-scope.md`, with Bryan's latest corrections in this conversation taking precedence. Heritage Homestead's Clover connection uses a private, read-only Clover OAuth app. Address approval directly to Craig as ‘you’; Clover stays exactly as you run it. Use first-person singular for Bryan at Bryce Labs. OAuth is an implementation detail, not headline copy. Bryan will buy and set up a media computer for the office TV. On-site work is invoiced separately. Use the blue/white palette from https://www.velocity.builders/ and generic TV wording throughout.
+Content authority: `../phase1-scope.md`, with Bryan's latest corrections in this conversation taking precedence. Heritage Homestead's Clover connection uses a private, read-only Clover OAuth app. Address approval directly to Craig as ‘you’; Clover stays exactly as you run it. Use first-person singular for Bryan at Bryce Labs. OAuth is an implementation detail, not headline copy. Bryan will buy and set up a media computer for the office TV. On-site work is invoiced separately (in the agreement, not on the page). Use the blue/white palette from https://www.velocity.builders/ and generic TV wording throughout.
 
 Use only the supplied client-facing scope and this brief. Do not consult additional commercial source material. All displayed balances, sales and receivables below are invented examples. Do not add real financial information, credentials, account identifiers, testimonials, or claims of measured savings.
 
-Three limits must remain explicit:
+### Revision: outcomes first
 
-- Bloomfield Property Group belongs in the six-company picture, but its data source is not assigned in the scope. Show “Source to confirm.” Do not invent a fourth QuickBooks connection or an additional deliverable.
-- Thirty Acres rent tracking is conditional on a practical bank feed or simple sheet. Keep that condition beside each promise about rent.
-- The media computer choice, question pack and access timing remain to be agreed. Twelve weeks is the planned sequence after access, not a guaranteed calendar deadline.
+Bryan's direction: “Focus on what he gets, not on contractual edge cases.” This overrides the earlier requirement to keep limits explicit on the page.
+
+- Lead with what Craig sees and uses: connected books, bank balances together, answers on his phone, the office TV dashboard, sample questions and the 12-week plan. Each gets its own section with a visual.
+- Every heading names something Craig gets. The only exceptions are “What I need from you” and “Let’s talk.”
+- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term, cancellation and maintenance option; AI usage allowance; the “Not included” list; and open items such as the Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
+- Price appears as one line, “$3,000 / month”, with one plain sentence about what continues each month.
+- “What I need from you” is a short, friendly list of access steps with no conditions.
+- No internal details on the page: percentages, hours, other clients or prior vendors.
 
 The sections below supply final visible wording. Layout instructions and technical notes are for the implementer and must not appear as page copy.
 
 ## Information architecture and final copy
 
-Use this order. Anchor links are optional navigation aids, not separate pages. Header: text wordmark “Bryce Labs” and a single “Let’s talk” link to `#next-step`. No menu drawer or sticky action bar.
+Use this order. Anchor links are optional navigation aids, not separate pages. Header: text wordmark “Bryce Labs” and a single “Let’s talk” link to `#next-step`. No menu drawer or sticky action bar. Sections alternate white and pale blue backgrounds so each outcome reads as its own scene.
 
 ### 1. Hero — `#proposal`
 
 **Small identification:** “Prepared for Craig Bloomfield”
 
-**H1:** “Your companies. One clear view.”
+**H1:** “All your companies’ numbers in one place.”
 
-**Body:** “Ask a question from your phone. See the same numbers on your office TV. I connect the systems you already use.”
+**Body:** “I’ll connect the systems you already use, so you can ask a question from your phone and see the same numbers on your office TV.”
 
-**Primary link:** “See how it connects” → `#one-place`
+**Primary link:** “See what you get” → `#what-you-get`
 
 **Byline:** “Bryan Bryce · Bryce Labs LLC”
 
-Pair the copy with a small phone and TV composition using the example cash figure from section 4. Include the visible label “Example data” within this composition. Keep the title and primary link visible on a typical phone without an oversized empty hero. The full company diagram follows immediately; do not repeat it here.
+Pair the copy with a small phone and TV composition using the example cash figure from section 7, labeled “Example data.”
 
-### 2. Diagram — `#one-place`
-
-**H2:** “One place to see your money”
-
-Use the diagram specification later in this plan. Its exact node labels are final page copy.
-
-**Below the diagram:** “Your bank connection is read-only. No money moves. You approve the read-only Clover connection, and Clover stays exactly as you run it.”
-
-Keep this reassurance adjacent to the connections. Do not bury the conditional sources in a footer.
-
-### 3. Deliverables — `#what-you-get`
+### 2. Overview — `#what-you-get`
 
 **H2:** “What you get”
 
-Present these six items as a compact two-column list on wide screens and a single list on phones. Each item has one short title and one sentence; no extra badge or subtitle.
+Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. Card H3s end with a decorative arrow.
 
-1. **“Your books, connected”** — “QuickBooks Online for Velocity Builders, Tiago LLC and Dirt Kings, plus a read-only Clover connection for Heritage Homestead.”
-2. **“Your bank balances together”** — “Connect up to 6 bank accounts through Plaid, with read-only access.”
-3. **“Answers on your phone”** — “Type or speak a question and get an answer from your connected numbers.”
-4. **“Your office TV dashboard”** — “I’ll buy and set up a media computer for your office TV. Start with 2 company panels and grow to 4 or more.”
-5. **“Thirty Acres rent, if practical”** — “Track rent from both tenants and the few expenses using a bank feed or simple sheet, if practical.”
-6. **“A checked set of answers”** — “I’ll agree on about 10 starter questions with you, check the answers, and leave you a short how-to sheet.”
+| # | H3 | Line | Links to |
+| --- | --- | --- | --- |
+| 1 | “Your books, connected” | “QuickBooks and Clover feed one place, for all your companies.” | `#one-place` |
+| 2 | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
+| 3 | “Answers on your phone” | “Type or speak a question. Get a straight answer.” | `#phone` |
+| 4 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
+| 5 | “Your office TV dashboard” | “Your companies on the wall, kept up to date.” | `#tv-example` |
+| 6 | “Your 12-week plan” | “First answers in week 2. Everything checked by week 12.” | `#timeline` |
 
-### 4. TV example — `#tv-example`
+### 3. Books connected — `#one-place`
 
-**H2:** “A look at your office TV”
+**H2:** “Your books, connected”
 
-**Visible label, inside the mock TV:** “Example data — not your accounts”
+**Intro:** “You keep using QuickBooks, Clover and your banks the way you do today. I connect them to one assistant that you can ask from your phone and see on your office TV.”
+
+Use the diagram specification later in this plan.
+
+**Below the diagram:** “You approve a read-only Clover connection, and Clover stays exactly as you run it.”
+
+### 4. Bank balances — `#banks`
+
+**H2:** “Your bank balances together”
+
+Two columns on wide screens: a white card with the example balances, and the benefit copy beside it.
+
+**Card:** “Example data” tag, label “Cash in connected bank accounts”, total “$186,400”, then one horizontal bar per company, sorted largest first, each scaled to the largest balance:
+
+| Company | Value |
+| --- | --- |
+| Velocity Builders | $94,200 |
+| Tiago LLC | $38,100 |
+| Heritage Homestead LLC | $29,400 |
+| Dirt Kings | $24,700 |
+
+Bars are decorative (`aria-hidden`); names and values are text.
+
+**Intro:** “One number for all your cash, and the balance for each company underneath it. No more logging in to each bank.”
+
+**Points (tick icons):**
+
+- “**Up to 6 bank accounts** in one view.”
+- “**Read-only.** Nothing can move money.”
+- “**Your password stays yours.** I never see or store it.”
+
+### 5. Answers on your phone — `#phone`
+
+**H2:** “Answers on your phone”
+
+Benefit copy beside a CSS phone mockup with a static conversation. No input field or chat controls.
+
+**Intro:** “Ask the way you’d ask your bookkeeper. Type it or say it, and get an answer from your connected numbers, wherever you are.”
+
+**Points:**
+
+- “**Plain English.** No reports to run or menus to learn.”
+- “**All your companies at once,** or one at a time.”
+- “**The same numbers** you see on the office TV.”
+
+**Phone mockup** (tag “Example data”; values must match the TV example):
+
+| You ask | Answer |
+| --- | --- |
+| “How much cash is in my connected bank accounts?” | “$186,400 across four companies. Velocity Builders has the most, at $94,200.” |
+| “How much is past due for Velocity?” | “$12,800 in past-due invoices.” |
+| “How did the farm store do this week?” | “$8,420 in sales at Heritage Homestead.” |
+
+### 6. Questions — `#questions`
+
+**H2:** “Questions you can ask”
+
+**Intro:** “Here are the kinds of questions I’ll set up first. We’ll pick your starter list together, and I’ll check every answer before you rely on it.”
+
+Four grouped cards (two columns on wide screens), each question with a small decorative speech-bubble marker. All ten visible.
+
+- **Cash:** “How much cash is in my connected bank accounts?” · “What’s the cash balance for each company?” · “What money moved between my connected accounts this week?”
+- **Money owed:** “Who owes Velocity, Tiago and Dirt Kings money, and how much is past due?” · “What bills do my companies owe in the next 30 days?”
+- **Sales and results:** “What did Velocity Builders do in sales this month?” · “What did each company make or lose this month and year to date?” · “What were the biggest expenses across the companies this month?”
+- **Farm store and rent:** “How did the farm store do this week: sales, top sellers and anything running low?” · “Did both Thirty Acres tenants pay rent this month?”
+
+The transfer question asks about recorded activity; it must never look like a command to move money.
+
+### 7. TV example — `#tv-example`
+
+**H2:** “Your office TV dashboard”
+
+**Intro:** “Your companies on the wall, so you and your team can see where things stand without asking.”
+
+**Visible label, inside the mock TV:** “Example data, not your accounts”
 
 Build a landscape TV silhouette using HTML/CSS, with a restrained dark bezel. Its content is live HTML text, not a screenshot. Show this exact static example:
 
@@ -79,152 +150,81 @@ Build a landscape TV silhouette using HTML/CSS, with a restrained dark bezel. It
 
 **Inside the TV, beneath the total:** “Four companies shown in this example.”
 
-**Below the mockup:** “The first dashboard starts with 2 company panels, then grows to 4 or more. You choose what you want to see.”
+**Below the TV, three points:**
 
-The four bank cash values sum to $186,400. Receivables and Clover sales are separate measures and are not added to cash. Do not add a fake current timestamp, fake connection status, sample tenant names, or unsupported projections. This is an illustration of the proposed result, not a claim that accounts are already connected. Thirty Acres and Bloomfield Property Group appear in the main diagram; do not fabricate balances for them here.
+- “**I set it up for you.** I buy and set up the computer that runs your TV.”
+- “**It grows with you.** Start with 2 company panels and grow to 4 or more.”
+- “**You choose what’s on it.** Cash, money owed, sales, whatever you check most.”
 
-On narrow screens, let the bezel stretch vertically and stack the company panels. Do not shrink a fixed 16:9 image until its text is unreadable. The wide version should still feel like a TV dashboard.
+The four bank cash values sum to $186,400. Receivables and Clover sales are separate measures and are not added to cash. No fake timestamp or connection status. On narrow screens, let the bezel stretch vertically and stack the panels.
 
-### 5. Questions — `#questions`
+### 8. Timeline — `#timeline`
 
-**H2:** “Ask it in plain English”
+**H2:** “Your 12-week plan”
 
-Use a readable list of questions, not interactive chat controls. All ten are visible; no carousel or hidden tabs.
+**Intro:** “Week 1 starts as soon as I have access to your accounts. You’ll see working answers early and more every few weeks.”
 
-1. “How much cash is in my connected bank accounts?”
-2. “What’s the cash balance for each company?”
-3. “What did Velocity Builders do in sales this month?”
-4. “Who owes Velocity, Tiago and Dirt Kings money, and how much is past due?”
-5. “What bills do my companies owe in the next 30 days?”
-6. “What did each company make or lose this month and year to date?”
-7. “How did the farm store do this week: sales, top sellers and anything running low?”
-8. “Did both Thirty Acres tenants pay rent this month?” — adjacent visible note: “If rent tracking is included.”
-9. “What were the biggest expenses across the companies this month?”
-10. “What money moved between my connected accounts this week?”
-
-**Below the list:** “I’ll agree on the final questions with you, based on the data I connect.”
-
-The transfer question asks about recorded activity; it must never look like a command to move money. Do not promise a profit-and-loss answer from a bank balance alone. The final question pack must match the available company records.
-
-### 6. Timeline — `#timeline`
-
-**H2:** “12 weeks: connect, answer, prove”
-
-**Timing note:** “Week 1 starts when access is ready. If access comes later, the dates move with it.”
-
-Three adjacent phases on desktop; a vertical sequence on phones. Use these exact milestones:
+Three phases side by side on desktop, stacked on phones. Each H3 carries a small week range above the phase name, and each phase ends with a pale “You’ll have” box.
 
 | Phase | Week | Copy |
 | --- | --- | --- |
-| Connect | 1 | “Kickoff, access and your starter questions.” |
-| Connect | 2 | “Connect all 3 QuickBooks accounts. First answers on your phone.” |
-| Connect | 3 | “Connect bank accounts and Clover.” |
-| Connect | 4 | “Remote demo of the first 2 TV panels.” |
-| Answer | 5 | “Set up the TV on-site, booked separately.” |
-| Answer | 6 | “Farm store weekly summary. Thirty Acres rent tracking, if included.” |
-| Answer | 7 | “Check the starter questions and fix wrong answers.” |
-| Answer | 8 | “Grow the dashboard to 4 or more company panels.” |
-| Prove | 9–10 | “Use it day to day. Fix and polish.” |
-| Prove | 11 | “Check the agreed questions against live data.” |
-| Prove | 12 | “Handoff, how-to sheet and what comes next.” |
+| Connect (Weeks 1–4) | 1 | “Kickoff, access and your starter questions.” |
+| | 2 | “Connect all 3 QuickBooks accounts. First answers on your phone.” |
+| | 3 | “Connect bank accounts and Clover.” |
+| | 4 | “Demo of your first 2 TV panels.” |
+| | You’ll have | “answers on your phone and a first look at your TV.” |
+| Answer (Weeks 5–8) | 5 | “Set up the TV in your office.” |
+| | 6 | “Farm store weekly summary and Thirty Acres rent tracking.” |
+| | 7 | “Check the starter questions and fix any wrong answers.” |
+| | 8 | “Grow the dashboard to 4 or more company panels.” |
+| | You’ll have | “the TV running in your office with all your main companies.” |
+| Prove (Weeks 9–12) | 9–10 | “Use it day to day. I fix and polish.” |
+| | 11 | “Check your questions against live data.” |
+| | 12 | “Handoff, a short how-to sheet and what comes next.” |
+| | You’ll have | “checked answers you can trust, on your phone and the TV.” |
 
-**Completion line:** “Phase 1 is done when the assistant answers the agreed questions correctly, from live data, on your phone and the TV.”
+### 9. Price — `#monthly`
 
-The week-5 milestone does not include its separate fee in the monthly price. Link “booked separately” to `#on-site`.
+**H2:** “One simple monthly price”
 
-### 7. Monthly arrangement — `#monthly`
+**Price:** “$3,000 / month”
 
-**H2:** “What’s included monthly”
+**Beside it:** “You get a weekly update or short demo, and I keep your connections working.”
 
-**Primary price:** “$3,000 / month”
+Nothing else. Term, on-site work, maintenance option and usage allowance belong in the agreement.
 
-**Term:** “3 months to start. Then month to month.”
+### 10. What comes next — `#next-project`
 
-**Initial commitment:** “$9,000 over the first 3 months. On-site work is invoiced separately.”
+**H2:** “What we can build next”
 
-**Included list:**
+**Intro:** “Once this is running, you pick what we work on next. Two ideas for later:”
 
-- “One active build project, worked on remotely.”
-- “A weekly update or short demo.”
-- “2 remote sessions a month, 60–90 minutes each.”
-- “Monitoring, working connections, fixes and security.”
-- “Up to $150 a month in AI usage for the assistant. If you go over, I’ll talk with you before anything changes.”
-
-**Cancellation:** “After the first 3 months, either of us can stop with 30 days’ notice.”
-
-**Secondary option:** “Maintenance only: $750 / month”
-
-**Secondary option body:** “After the first 3 months, you can switch to maintenance only. That keeps everything running and fixed, with no new features.”
-
-Use one primary price block and a quieter maintenance row below it. No artificial tier comparison, discount, countdown, checkout, or “most popular” tag. Do not imply maintenance includes continued feature development or promise additional usage terms absent from the scope.
-
-### 8. On-site work — `#on-site`
-
-**H2:** “On-site setup”
-
-**Rate:** “$200 / hour, prepaid”
-
-**Estimate:** “TV setup: about 3 hours / about $600, if your crew mounts the hardware and runs the cables. I handle setup and testing.”
-
-**Terms:** “On-site or dedicated time is invoiced separately. I’ll book the visit once the remote side is working. If it looks like I’ll run over, I’ll stop and check with you first. Unused prepaid hours stay as credit for 12 months.”
-
-**Open details:** “I’ll buy and set up the media computer for your TV. I’ll confirm the computer with you before I buy it.”
-
-Do not describe $600 as a fixed quote or an all-in hardware price. No hardware model or purchase price has been agreed.
-
-### 9. Boundaries and later work — `#next-project`
-
-**H2:** “What comes next”
-
-Give these two future items modest visual emphasis:
-
-- **“Email triage”** — “A possible next project after Phase 1.”
+- **“Email triage”** — “Help staying on top of your inbox.”
 - **“Construction pipeline”** — “Homes under construction, spec homes and days on market.”
 
-**Next-project terms:** “Once Phase 1 is accepted, you choose the next project under the same monthly fee. If you want a second project running at the same time, I’ll quote it first.”
-
-**Subheading:** “Not included in Phase 1”
-
-- “Bookkeeping or replacing your bookkeeper.”
-- “Email triage, texting or iMessage.”
-- “Construction pipeline tracking.”
-- “A dedicated TV app.”
-- “Work on existing custom software.”
-- “Replacing Clover or QuickBooks.”
-- “Equipment and property tracking, inter-company leases or moving money.”
-- “Investment accounts or market alerts.”
-
-Show the boundaries as a compact open list; do not hide them behind a disclosure. The “same monthly fee” means the active $3,000 build arrangement, not the $750 maintenance option. This section offers later discussion, not a promise that every listed system or feature is feasible without scoping.
-
-### 10. Client inputs — `#from-you`
+### 11. Client inputs — `#from-you`
 
 **H2:** “What I need from you”
 
-Use a simple list with small decorative check-outline icons. Do not create checkboxes that imply anything has already been provided.
+**Intro:** “Just access to get started. I’ll walk you through each step.”
 
-- “QuickBooks Online invites for Velocity Builders, Tiago LLC and Dirt Kings.”
-- “Your approval of the private, read-only Clover connection for Heritage Homestead.”
-- “A session with you to connect up to 6 bank accounts through Plaid. I never see or store your bank password.”
-- “The Thirty Acres rent sheet or account, if rent tracking is included.”
-- “Your questions and what you want on the TV. A photo, notes or a voice memo is fine.”
-- “A spot near the TV for the media computer, with power and internet.”
-- “Your best email and phone for updates, and one other main contact if you want.”
-- “The legal company name that will sign the agreement.”
-- “Which records should represent Bloomfield Property Group.”
+Simple list with small decorative check-outline icons. No checkboxes, no conditions, no requests for passwords on the page.
 
-The final item resolves the diagram's open mapping; it does not add a promised integration. Do not ask Craig to submit access details or passwords on this proposal page.
+- “QuickBooks invites for Velocity Builders, Tiago LLC and Dirt Kings.”
+- “Your OK on the read-only Clover connection.”
+- “A short session together to connect your bank accounts.”
+- “The Thirty Acres rent sheet or account.”
+- “Your questions and what you want on the TV. Notes or a voice memo are fine.”
 
-### 11. Next step — `#next-step`
+### 12. Next step — `#next-step`
 
 **H2:** “Let’s talk.”
 
-**Prominent call to action:** “Reply to Bryan to schedule a call.”
-
-**Body:** “Reply to the message I sent with this link. I’ll settle the open details with you, then put the agreed scope in writing.”
+**Body:** “Reply to the message I sent with this link and we’ll set up a call. After that, I’ll put everything in writing for you to look over.”
 
 **Footer:** “Prepared for Craig Bloomfield by Bryan Bryce · Bryce Labs LLC”
 
-Default to these reply instructions because the scope supplies no verified sender email or scheduling URL. The prominent call to action is text, not an inert button. The header link scrolls here. If Bryan's PM supplies a verified email, turn “Reply to Bryan” into a real `mailto:` link, keep the reply instructions as a fallback, and display the address. A supplied scheduling URL may instead be a plain external link. Do not invent either destination, embed a scheduler, add a form, or make a link that accepts the proposal.
+No form, invented email, embedded scheduler or contract-acceptance behavior. If Bryan's PM supplies a verified email or scheduling URL, it may become a real link.
 
 ## Visual direction
 
@@ -245,13 +245,13 @@ Suggested tokens, subject to measured contrast:
 
 Use a system sans-serif stack, strong weights and tabular numerals for money. No downloaded fonts. One H1; section H2s; H3 only for phase names, deliverables or true subsections. Body 18px minimum on phones; no tiny labels. Hero title approximately `clamp(2.4rem, 6vw, 5rem)`. Main content max-width around 1280px, with paragraphs limited to about 65 characters per line. TV numbers scale above surrounding body text.
 
-Phone gutters 20px; desktop gutters 32–48px. Section spacing around 56px on phones and 88px on wide screens. Prefer whitespace and subtle dividers to a card around every sentence. Use 8–12px corners on cards and controls, slightly larger on the TV bezel. Keep the price, deliverables and timeline visually distinct without adding unrequested headings or promotional copy.
+Phone gutters 20px; desktop gutters 32–48px. Section spacing around 56px on phones and 88px on wide screens. Prefer whitespace and subtle dividers to a card around every sentence. Use 8–12px corners on cards and controls, slightly larger on the TV bezel. Give each outcome section its own visual (diagram, balance bars, phone conversation, question cards, TV, phase boxes) so the page reads as things Craig gets, not a list of terms.
 
 At 1920×1080, the diagram and dashboard must be readable at normal browser zoom with no fine print; each can occupy its own scroll position during a TV presentation. This remains a scrolling page, not a slide deck. Do not use fixed-height sections. At 320–430px widths, stack content and preserve all names, qualifiers, prices and questions without horizontal page scrolling.
 
 Default to no animation and no JavaScript. Native anchor links are sufficient. No parallax, auto-scrolling, loading screens, hover-only explanations or fake chat input. If a small enhancement is added, the whole proposal and CTA still work without it and with reduced motion enabled.
 
-Aim for WCAG 2.2 AA: semantic landmarks, skip link, meaningful headings, visible keyboard focus, at least 4.5:1 normal-text contrast and 3:1 large-text/non-text control contrast. Use 44×44 CSS-pixel comfortable link targets where relevant. Test reflow at 400% zoom and text enlargement at 200%. Source status must be conveyed in words as well as line style/color. Decorative graphics stay out of the accessibility tree.
+Aim for WCAG 2.2 AA: semantic landmarks, skip link, meaningful headings, visible keyboard focus, at least 4.5:1 normal-text contrast and 3:1 large-text/non-text control contrast. Use 44×44 CSS-pixel comfortable link targets where relevant. Test reflow at 400% zoom and text enlargement at 200%. Decorative graphics stay out of the accessibility tree.
 
 ## Diagram specification
 
@@ -259,32 +259,31 @@ Render the labels as real HTML in a figure, using CSS grid and decorative CSS or
 
 ### Sources: exact labels and connections
 
-| Company node | Source text | Connector to assistant |
-| --- | --- | --- |
-| Velocity Builders | QuickBooks Online | Solid |
-| Tiago LLC | QuickBooks Online | Solid |
-| Dirt Kings | QuickBooks Online | Solid |
-| Heritage Homestead LLC | Clover · read-only | Solid |
-| Thirty Acres LLC | Rent · bank feed or simple sheet, if practical | Dashed; condition visible |
-| Bloomfield Property Group | Source to confirm | Dashed; uncertainty visible |
+| Company node | Source text |
+| --- | --- |
+| Velocity Builders | QuickBooks Online |
+| Tiago LLC | QuickBooks Online |
+| Dirt Kings | QuickBooks Online |
+| Heritage Homestead LLC | Clover · read-only |
+| Thirty Acres LLC | Rent and expenses |
+
+All connectors are solid. There is no dashed “to confirm” style and no line key. Bloomfield Property Group is left off the page until its source is agreed; add it back as a solid node once it is.
 
 Separate shared source beneath the company group:
 
-**“Banks through Plaid”** / **“Up to 6 accounts · read-only”**
+**“Your banks”** / **“Up to 6 accounts · read-only”**
 
-Connect that shared source to the assistant once. Do not draw one bank account for each company, imply six accounts per company, assign specific banks, or make QuickBooks and Clover balances look like additional cash on top of bank balances. The shared bank node applies to the accounts Craig selects; company ownership is confirmed during setup.
+Connect that shared source to the assistant once. Do not draw one bank account per company or name specific banks.
 
 **Center node:** “Your assistant”
 
 **Output nodes:** “Your phone” / “Type or speak a question” and “Your office TV” / “See the same numbers”
 
-**Visible line key:** “Solid: planned connection. Dashed: to confirm.”
+**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, and up to six bank accounts feed one assistant. You get the answers on your phone and the office TV.”
 
-**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, and up to six bank accounts through Plaid feed one assistant. Thirty Acres rent depends on a practical bank feed or sheet. Bloomfield Property Group’s source is still to confirm. The assistant supplies answers on your phone and the office TV.”
+On desktop, use sources at left, assistant in the middle, phone and TV at right. Stack the company nodes in one column within the source area. Connectors point toward the assistant; arrows then point outward to phone and TV. They indicate the proposed flow, not current operational status.
 
-On desktop, use sources at left, assistant in the middle, phone and TV at right. Give the six companies a two-column grid within the source area if needed. Do not put six tiny source columns across the page. Solid and dashed connectors point toward the assistant; arrows then point outward to phone and TV. They indicate the proposed flow, not current operational status.
-
-On phones, use the six company/source rows, the shared banks row, one downward connector to the assistant, then the two outputs below. Make each conditional row's meaning readable even where a shared connector replaces individual paths. No sideways pan, overlapping lines or duplicate visible diagram. Small device outlines are decoration; labels carry the meaning.
+On phones, use the company/source rows, the shared banks row, one downward connector to the assistant, then the two outputs below. No sideways pan, overlapping lines or duplicate visible diagram. Small device outlines are decoration; labels carry the meaning.
 
 ## File structure and technical requirements
 
@@ -360,31 +359,25 @@ Review the implementation against this checklist before any publication. Repeat 
 
 ### Content and scope
 
-- [ ] All 11 sections appear in the specified order with final wording or a clearly documented, scope-preserving copy correction. Craig and Bryan / Bryce Labs LLC are identified correctly.
-- [ ] All six company names appear in the diagram; exactly three QuickBooks connections are assigned to Velocity Builders, Tiago LLC and Dirt Kings.
-- [ ] Clover is a private read-only OAuth app in the implementation brief; visible copy says ‘you’ approve the read-only connection and Clover stays exactly as you run it. No request for a Clover login or generic Clover invite replaces this approval.
-- [ ] Up to 6 bank accounts total, through Plaid, read-only; no money movement. Bank ownership is not invented. Cash does not double-count bookkeeping or sales data.
-- [ ] Thirty Acres is conditional beside diagram, deliverable, sample question and timeline. Bloomfield Property Group says “Source to confirm” and has no invented integration or balance.
-- [ ] The static mockup and hero preview visibly say example data; the TV says “not your accounts.” Values match this plan and four cash balances total $186,400. No real records or live-status implication appears.
-- [ ] Bryan explicitly buys and sets up a media computer for the office TV; it starts with 2 panels and grows to 4 or more. No dedicated TV app is promised. No TV brand names appear in visible or accessible copy.
-- [ ] All ten draft questions are visible; the final pack is agreed together and matched to connected data. Completion means correct answers from live data on phone and TV.
-- [ ] Connect / Answer / Prove cover weeks 1–12 with access dependency and separately billed week-5 on-site work explicit.
-- [ ] $3,000/month; 3-month start; $9,000 initial monthly-fee total; month-to-month after; 30 days' notice; $750 maintenance-only afterward with no new features.
-- [ ] One active remote project, weekly update/demo, two 60–90 minute sessions, maintenance/security and $150/month AI allowance all appear. No automatic usage overage price is invented.
-- [ ] On-site/dedicated time is explicitly invoiced separately, prepaid at $200/hour; about 3 hours/$600 depends on Craig's crew mounting hardware and running cables. Runover check, 12-month credit and media computer choice remain clear.
-- [ ] All exclusions are present. Email triage and construction pipeline are future projects after acceptance; the $750 option does not include them.
-- [ ] Inputs include correct access/approval steps, bank session, rent source if included, TV/power/internet, questions, contact details, signing entity and Bloomfield Property Group source confirmation.
-- [ ] CTA gives an actual reply path without a form, invented email, dummy button, embedded scheduler or contract-acceptance behavior. No unsupported commercial claims or private source material appears in page, repo files or history.
-
-- [ ] All provider voice uses first-person singular (I / my); client-facing approval says you. The palette matches the verified Velocity Builders blues and white, with rendered contrast rechecked.
+- [ ] All 12 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
+- [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, maintenance option, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
+- [ ] Price appears once, as “$3,000 / month”, with one plain sentence.
+- [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, and up to 6 read-only bank accounts. No money movement is implied.
+- [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, four cash balances total $186,400, and the phone answers match the TV.
+- [ ] Bryan buys and sets up the computer for the office TV; it starts with 2 panels and grows to 4 or more. No TV brand names.
+- [ ] All ten questions are visible in four groups.
+- [ ] Each timeline phase ends with a “You’ll have” outcome.
+- [ ] “What I need from you” is five short access items with no conditions and no request for passwords on the page.
+- [ ] CTA gives a reply path without a form, invented email, dummy button, embedded scheduler or contract-acceptance behavior.
+- [ ] First-person singular for Bryan; Craig is “you.” No percentages, hours, other clients or prior vendors. No em-dash-heavy or slogan copy.
 
 ### Visual and interaction review
 
 - [ ] Inspect rendered views at 320, 390, 768, 1440 and 1920 CSS pixels wide; include a 1920×1080 TV-like view. Save representative mobile and wide screenshots outside the public repo. If actual TV viewing is unavailable, state that limitation.
 - [ ] On a phone, the hero action is easy to reach; all source labels wrap; diagram flows downward; TV panels stack and remain readable; timeline remains in order. No horizontal page overflow, clipped prices or overlapping arrows.
 - [ ] On the wide view, diagram and dashboard communicate without zooming. Read the company names, amounts, example label and conditional notes at normal zoom; flag a real room-distance check as pending if untested.
-- [ ] Arrows correctly flow sources → assistant → phone/TV. Dashed connections have visible textual qualifiers. The shared bank node does not imply six accounts for every company.
-- [ ] Keyboard navigation reaches skip link, header and hero links, timeline cross-link, and any supplied contact link in a sensible order, with visible focus and no traps or obscured destinations.
+- [ ] Arrows correctly flow sources → assistant → phone/TV. The shared bank node does not imply six accounts for every company.
+- [ ] Keyboard navigation reaches skip link, header and hero links, the six overview cards, and any supplied contact link in a sensible order, with visible focus and no traps or obscured destinations.
 - [ ] Check heading/landmark structure and accessible diagram meaning in the accessibility tree. Spot-check reading order with a screen reader where available; record limitations.
 - [ ] Measure rendered text and control contrast. Check 200% text enlargement, 400% reflow, reduced motion and forced-color presentation; content and links remain usable.
 - [ ] All content and native links work with JavaScript disabled. No hover-only detail or unnecessary motion. All anchors lead to the intended visible section.

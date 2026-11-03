@@ -93,7 +93,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   border-radius: 4px;
 }
 
-.money, .tv__total-value, .metric dd, .mini-tv__value, .mini-phone__answer {
+.money, .tv__total-value, .metric dd, .mini-tv__value, .mini-phone__answer, .balances__total, .bar__value {
   font-variant-numeric: tabular-nums lining-nums;
   white-space: nowrap; /* currency amounts never break across lines */
 }
@@ -107,12 +107,12 @@ a:hover { text-decoration-thickness: 0.14em; }
   container: wrap / inline-size;
 }
 
-.measure, .note, .reassure, .lead { max-width: 65ch; }
+.measure, .note, .reassure, .lead, .intro { max-width: 65ch; }
 
 .nowrap { white-space: nowrap; }
 
 /* Single-column grids must not grow past the viewport at large text sizes */
-.sources, .outputs, .ticks, .deliverables, .questions, .phases, .price, .onsite, .later, .excluded, .needs, .tv__panel dl {
+.sources, .outputs, .overview, .qgroups, .split, .points, .tv-points, .phases, .later, .needs, .tv__panel dl {
   grid-template-columns: minmax(0, 1fr);
 }
 
@@ -315,7 +315,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   }
 }
 
-/* 2. Diagram ------------------------------------------------------- */
+/* 3. Books connected (diagram) ------------------------------------ */
 
 .diagram { margin: 0 0 2rem; }
 
@@ -337,12 +337,6 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 .source__name, .output__name { display: block; font-weight: 750; }
 .source__via, .output__note { display: block; color: var(--muted); }
-
-.source--confirm {
-  border-style: dashed;
-  border-color: var(--accent);
-}
-.source--confirm .source__via { color: var(--accent); font-weight: 650; }
 
 .source--bank {
   margin-top: 0.75rem;
@@ -415,7 +409,6 @@ a:hover { text-decoration-thickness: 0.14em; }
       border-top: var(--stroke) solid var(--line);
       transform: translateY(-50%);
     }
-    .source--confirm::after { border-top-style: dashed; border-top-color: var(--accent); }
 
     /* Shared vertical rail, built from per-row segments */
     .source::before {
@@ -502,24 +495,6 @@ a:hover { text-decoration-thickness: 0.14em; }
 }
 }
 
-.line-key {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin-top: 1.5rem;
-  color: var(--muted);
-}
-
-.line-key__item { display: inline-flex; align-items: center; gap: 0.6rem; }
-
-.line-key__sample {
-  display: inline-block;
-  width: min(2.5rem, 12.5vw);
-  flex-shrink: 0;
-  border-top: 3px solid var(--line);
-}
-.line-key__sample--dashed { border-top-style: dashed; border-top-color: var(--accent); }
-
 .reassure {
   padding: 1rem 1.25rem;
   border-left: 4px solid var(--primary);
@@ -528,26 +503,232 @@ a:hover { text-decoration-thickness: 0.14em; }
   font-weight: 600;
 }
 
-/* 3. Deliverables -------------------------------------------------- */
+/* Shared: intro copy, two-column split, benefit points -------------- */
 
-.deliverables {
+.intro { font-size: 1.05em; margin-bottom: 2rem; }
+
+.split {
   display: grid;
-  gap: 0 3rem;
+  gap: 2rem 4rem;
+  align-items: center;
 }
 
-.deliverables li {
-  padding-block: 1.25rem;
-  border-top: 2px solid var(--rule);
+@media (min-width: 56em) {
+  @container wrap (min-width: 44rem) {
+    .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+    .split--phone { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  }
 }
 
-.deliverables h3 { margin-bottom: 0.35rem; }
-.deliverables p { color: var(--muted); max-width: 52ch; }
+.points-wrap .intro { margin-bottom: 1.5rem; }
+
+.points { display: grid; gap: 0.9rem; }
+
+.points li, .tv-points li {
+  position: relative;
+  padding-left: 2.4rem;
+}
+
+/* Decorative tick in a filled circle */
+.points li::before, .tv-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.points li::after, .tv-points li::after {
+  content: "";
+  position: absolute;
+  left: 0.56rem;
+  top: calc(0.1em + 0.3rem);
+  width: 0.35rem;
+  height: 0.65rem;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+.tag--inline {
+  position: static;
+  justify-self: start;
+  align-self: flex-start;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* 2. What you get (overview) --------------------------------------- */
+
+.overview { display: grid; gap: 1rem; }
+
+.overview__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1rem;
+  height: 100%;
+  padding: 1.25rem 1.35rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgb(28 55 90 / 0.08);
+}
+.overview__card:hover { border-color: var(--primary); }
+
+.overview__num {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.overview__card h3 { margin: 0.35rem 0 0.35rem; color: var(--primary-dark); }
+.overview__card h3::after {
+  content: " \2192";
+  color: var(--primary);
+}
+.overview__card p { color: var(--muted); }
+
+@media (min-width: 40em) {
+  .overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64em) {
+  @container wrap (min-width: 56rem) {
+    .overview { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  }
+}
+
+/* 4. Bank balances ------------------------------------------------- */
+
+.balances {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: min(1.75rem, 6vw);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgb(28 55 90 / 0.14);
+}
+
+.balances p { margin: 0; }
+.balances__label { color: var(--muted); font-weight: 600; }
+.balances .balances__total {
+  font-size: min(clamp(2.6rem, 1.6rem + 4vw, 4.25rem), 16vw);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.bars { display: grid; gap: 1rem; }
+
+.bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+}
+.bar__name { font-weight: 650; }
+.bar__value { font-weight: 800; }
+.bar__track {
+  grid-column: 1 / -1;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+.bar__fill {
+  display: block;
+  width: var(--share);
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+/* 5. Answers on your phone ----------------------------------------- */
+
+.phone {
+  justify-self: center;
+  width: min(100%, 22rem);
+  margin: 0;
+}
+
+.phone__body {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 1rem 2rem;
+  border: 0.65rem solid var(--bezel);
+  border-radius: 2.25rem;
+  background: var(--surface);
+  box-shadow: 0 16px 36px rgb(28 55 90 / 0.22);
+  font-size: 0.92em;
+  line-height: 1.35;
+}
+
+.chat { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.chat li { max-width: 88%; padding: 0.6rem 0.8rem; }
+
+.chat__ask {
+  align-self: flex-end;
+  border-radius: 14px 14px 3px 14px;
+  background: var(--primary);
+  color: #fff;
+}
+.chat__answer {
+  align-self: flex-start;
+  border-radius: 14px 14px 14px 3px;
+  background: var(--subtle);
+  margin-bottom: 0.5rem;
+}
+.chat__answer .money { font-weight: 800; }
+
+/* 6. Questions ----------------------------------------------------- */
+
+.qgroups { display: grid; gap: 1.25rem; }
+
+.qgroup {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--primary);
+  border-radius: var(--radius);
+}
+
+.qgroup h3 { margin-bottom: 0.75rem; }
+
+.qgroup li {
+  position: relative;
+  padding: 0.6rem 0 0.6rem 1.9rem;
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+}
+/* Decorative speech-bubble marker */
+.qgroup li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(0.6rem + 0.3em);
+  width: 1.1rem;
+  height: 0.85rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px 4px 4px 0;
+}
 
 @media (min-width: 48em) {
-  .deliverables { grid-template-columns: 1fr 1fr; }
+  .qgroups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* 4. TV example ---------------------------------------------------- */
+/* 7. TV example ---------------------------------------------------- */
 
 .tv { margin: 0; }
 
@@ -618,7 +799,6 @@ a:hover { text-decoration-thickness: 0.14em; }
   border-radius: 0 0 8px 8px;
 }
 
-.tv__caption { margin-top: 1.5rem; max-width: 65ch; }
 
 @media (min-width: 64em) {
   .tv__bezel { padding: min(1.1rem, 1.75vw); border-radius: 22px; }
@@ -641,54 +821,18 @@ a:hover { text-decoration-thickness: 0.14em; }
   .tv__panels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
-/* 5. Questions ----------------------------------------------------- */
-
-.questions {
-  counter-reset: q;
+.tv-points {
   display: grid;
-  gap: 0 3rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem 2.5rem;
+  margin-top: 2.25rem;
 }
-
-.questions li {
-  counter-increment: q;
-  position: relative;
-  padding: 0.85rem 0 0.85rem 2.75rem;
-  border-top: 1px solid var(--rule);
-  font-weight: 600;
-}
-
-.questions li::before {
-  content: counter(q);
-  position: absolute;
-  left: 0;
-  top: 0.85rem;
-  width: 2rem;
-  color: var(--accent);
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-}
-
-.condition {
-  display: inline-block;
-  margin-left: 0.25rem;
-  padding: 0 0.5rem;
-  border: 1px dashed var(--accent);
-  border-radius: 6px;
-  color: var(--accent);
-  font-weight: 650;
-  font-size: 0.9em;
-}
+.tv-points strong { display: block; }
 
 @media (min-width: 56em) {
-  .questions {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(5, auto);
-  }
+  .tv-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* 6. Timeline ------------------------------------------------------ */
+/* 8. Timeline ------------------------------------------------------ */
 
 .phases {
   display: grid;
@@ -709,6 +853,31 @@ a:hover { text-decoration-thickness: 0.14em; }
 }
 .weeks li:last-child { border-bottom: 0; }
 
+.phase h3 .phase__weeks {
+  display: block;
+  color: var(--accent);
+  font-size: 0.65em;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.phase { display: flex; flex-direction: column; }
+.weeks { flex: 1; }
+
+.phase__have {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius);
+  background: var(--subtle);
+  font-weight: 650;
+}
+.phase__have span {
+  display: block;
+  color: var(--primary);
+  font-size: 0.85em;
+  font-weight: 800;
+}
+
 .week {
   display: block;
   color: var(--accent);
@@ -716,93 +885,30 @@ a:hover { text-decoration-thickness: 0.14em; }
   font-size: 0.9em;
 }
 
-.done {
-  max-width: 65ch;
-  padding: 1rem 1.25rem;
-  background: var(--primary);
-  color: #fff;
-  font-weight: 700;
-  border-radius: var(--radius);
-}
-
 @media (min-width: 56em) {
   .phases { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
 }
 
-/* 7. Monthly ------------------------------------------------------- */
+/* 9. Price -------------------------------------------------------- */
 
 .price {
-  display: grid;
-  gap: 1.5rem 3rem;
-  padding: min(1.5rem, 7.5vw);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 2.5rem;
+  padding: min(1.75rem, 6vw) min(2rem, 6vw);
   border-radius: var(--radius);
   background: var(--surface);
-  border: 1px solid var(--rule);
 }
-
-.price__amount {
-  margin-bottom: 0.5rem;
-  font-weight: 800;
-  line-height: 1;
-}
+.price p { margin: 0; }
+.price__amount { font-weight: 800; line-height: 1; }
 .price__amount .money { font-size: min(clamp(3rem, 2rem + 4vw, 4.5rem), 15vw); letter-spacing: -0.02em; }
 .price__unit { font-size: 1.4em; color: var(--muted); }
+.price__note { max-width: 40ch; color: var(--muted); }
 
-.price__term { font-weight: 700; font-size: 1.1em; }
+/* 10. What we can build next --------------------------------------- */
 
-.ticks { display: grid; gap: 0.6rem; margin-bottom: 1.25rem; }
-
-.ticks li { position: relative; padding-left: 2rem; }
-.ticks li::before {
-  content: "";
-  position: absolute;
-  left: 0.2rem;
-  top: 0.3em;
-  width: 0.45rem;
-  height: 0.8rem;
-  border-right: 3px solid var(--primary);
-  border-bottom: 3px solid var(--primary);
-  transform: rotate(45deg);
-}
-
-.maintenance {
-  margin-top: 1.25rem;
-  padding: 1rem 1.5rem;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-}
-.maintenance__title { font-weight: 750; margin-bottom: 0.35rem; }
-.maintenance p:last-child { color: var(--muted); max-width: 65ch; }
-
-@media (min-width: 56em) {
-  @container wrap (min-width: 40rem) {
-    .price { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); padding: 2rem 2.25rem; }
-  }
-}
-
-/* 8. On-site ------------------------------------------------------- */
-
-.onsite { display: grid; gap: 1rem 3rem; }
-.onsite p { max-width: 60ch; }
-
-.onsite__rate {
-  font-weight: 800;
-  font-size: 1.5em;
-  line-height: 1.2;
-}
-.onsite__rate .money { font-size: 1.4em; }
-
-@media (min-width: 56em) {
-  .onsite { grid-template-columns: 1fr 1fr; }
-}
-
-/* 9. What comes next ----------------------------------------------- */
-
-.later {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
+.later { display: grid; gap: 1rem; }
 
 .later li {
   padding: 1rem 1.25rem;
@@ -816,33 +922,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   .later { grid-template-columns: 1fr 1fr; }
 }
 
-.subhead { margin: 2.5rem 0 1rem; }
-
-.excluded {
-  display: grid;
-  gap: 0 3rem;
-}
-
-.excluded li {
-  position: relative;
-  padding: 0.6rem 0 0.6rem 1.75rem;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-}
-.excluded li::before {
-  content: "";
-  position: absolute;
-  left: 0.15rem;
-  top: 1.35em;
-  width: 0.85rem;
-  border-top: 2px solid var(--muted);
-}
-
-@media (min-width: 48em) {
-  .excluded { grid-template-columns: 1fr 1fr; }
-}
-
-/* 10. From you ----------------------------------------------------- */
+/* 11. From you ----------------------------------------------------- */
 
 .needs {
   display: grid;
@@ -882,7 +962,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   .needs { grid-template-columns: 1fr 1fr; }
 }
 
-/* 11. Next step ---------------------------------------------------- */
+/* 12. Next step ---------------------------------------------------- */
 
 .section--closing {
   background: var(--primary);
@@ -894,13 +974,6 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 .section--closing h2 { color: #fff; }
 
-.cta {
-  font-size: clamp(1.6rem, 1.1rem + 2vw, 2.5rem);
-  font-weight: 800;
-  line-height: 1.2;
-  max-width: 30ch;
-}
-
 .site-footer {
   padding-block: 1.5rem;
   background: var(--primary-dark);
@@ -911,12 +984,14 @@ a:hover { text-decoration-thickness: 0.14em; }
 /* Forced colors ---------------------------------------------------- */
 
 @media (forced-colors: active) {
-  .button, .tag, .tv__flag, .condition { border: 2px solid ButtonText; }
-  .mini-phone__ask, .mini-phone__answer, .tv__panel, .done, .reassure, .later li { border: 1px solid CanvasText; }
+  .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
+  .bar__fill { background: CanvasText; forced-color-adjust: none; }
+  .bar__track, .phone__body, .qgroup, .phase__have { border: 1px solid CanvasText; }
+  .mini-phone__ask, .mini-phone__answer, .chat li, .tv__panel, .reassure, .later li { border: 1px solid CanvasText; }
   .source::before, .source::after, .output::before, .output::after,
   .flow__assistant::before, .flow__assistant::after,
   .node--assistant::before, .output__name::before,
-  .down-arrow, .down-arrow::after, .line-key__sample {
+  .down-arrow, .down-arrow::after {
     border-color: CanvasText;
     forced-color-adjust: none;
   }
