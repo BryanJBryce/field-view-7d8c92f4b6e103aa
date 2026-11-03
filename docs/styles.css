@@ -1657,7 +1657,10 @@ a:hover { text-decoration-thickness: 0.14em; }
   transform: rotate(45deg);
 }
 @media (min-width: 48em) {
-  .inclusive__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .inclusive__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 72em) {
+  .inclusive__list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* Tax note under the all-inclusive panel: quiet, left-border card */
@@ -1720,6 +1723,15 @@ a:hover { text-decoration-thickness: 0.14em; }
   color: var(--muted);
 }
 .docs strong { display: block; color: var(--text); font-size: 1.05em; margin-bottom: 0.2rem; }
+.doclink {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.35rem;
+  font-weight: 700;
+}
+.doclink::after { content: " \2192"; margin-left: 0.3em; }
 
 .needs {
   display: grid;

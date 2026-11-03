@@ -215,6 +215,9 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 - **“Computer hardware”** — “The computer that runs your office TV, plus the KVM.”
 - **“Cloud servers”** — “Private cloud networks (VPCs) and the compute your assistant runs on.”
 - **“AI usage”** — “Up to $200 a month for the assistant.”
+- **“On-site setup”** — “Up to 5 hours of on-site work, like setting up your TV. After that it’s $200 an hour, and only with your OK.”
+
+Four items: one column on phones, two on tablets, four on wide screens.
 
 **Below the all-inclusive panel, a quiet tax note** (light card with a blue left border, like the documents list in next steps):
 
@@ -233,8 +236,8 @@ Term, notice and on-site work belong in the agreement.
 Three numbered step cards, stacked. No checkboxes and no requests for passwords on the page.
 
 1. **“Sign the agreements”** — “Two short documents, so we both know where we stand.” Two side-by-side notes (stacked on phones):
-   - **“Master services agreement”** — “The ground rules for working together: payment, confidentiality, how your data is handled, who owns the work, and how either of us can end it.”
-   - **“Statement of work”** — “This project specifically: what I’m building, which monthly option you’re on, and what’s included.”
+   - **“Master services agreement”** — “The ground rules for working together: payment, confidentiality, how your data is handled, who owns the work, and how either of us can end it.” Link: “Read the agreement (PDF)” → `./agreements/bloomfield-master-services-agreement.pdf`
+   - **“Statement of work”** — “This project specifically: what I’m building, which monthly option you’re on, and what’s included.” Link: “Read the statement of work (PDF)” → `./agreements/bloomfield-statement-of-work-1.pdf`
 2. **“Give me access”** — “I’ll walk you through each one.” Check-outline list:
    - “QuickBooks invites for Velocity Builders, Tiago LLC and Dirt Kings.”
    - “Your OK on the read-only Clover connection.”
@@ -242,7 +245,7 @@ Three numbered step cards, stacked. No checkboxes and no requests for passwords 
    - “The Thirty Acres rent sheet or account.”
 3. **“Tell me what you want to see”** — “Your questions and what you want on the TV. Notes or a voice memo are fine.”
 
-Describe what each agreement covers in plain words only; actual terms live in the documents themselves.
+Describe what each agreement covers in plain words; the full terms are in the linked PDFs in `docs/agreements/`, built from sources kept outside this repo (`~/bloomfield/contracts/src`). Rebuild and recopy the PDFs whenever the terms change. The PDFs are unsigned, with blanks for Craig’s company and details.
 
 ### 9. Next step — `#next-step`
 
