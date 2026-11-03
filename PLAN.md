@@ -356,7 +356,7 @@ proposal-site/
 
 Use `/docs` as the publishing folder to keep handoff and QA files outside the served site. They would still be visible if committed to a public repository. Do not copy source documents into this repo. No package manager, framework, backend, API calls, authentication, financial-system connections or build step for this page. Do not add a JS file unless an approved interaction actually needs it. Use relative asset paths such as `./styles.css` so project Pages URLs work. Do not add a `CNAME` or use the account's root Pages repository.
 
-In the document head include UTF-8, `lang="en"` on the root element, viewport metadata, title “Craig Bloomfield — Phase 1 proposal | Bryce Labs”, a concise description drawn from the hero, and exactly:
+In the document head include UTF-8, `lang="en"` on the root element, viewport metadata, title “Your custom AI agent — proposal for Craig Bloomfield | Bryce Labs”, a concise description drawn from the hero, and exactly:
 
 ```html
 <meta name="robots" content="noindex,nofollow">
