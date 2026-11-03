@@ -16,7 +16,7 @@ Bryan's direction: “Focus on what he gets, not on contractual edge cases.” T
 
 - Lead with what Craig sees and uses: connected books, answers on his phone, the office TV dashboard, sample questions and the monthly options. Each gets its own section with a visual.
 - Every heading names something Craig gets. The only exceptions are “Next steps” and “Let’s talk.”
-- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term and cancellation; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
+- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term and cancellation; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
 - Pricing shows two plain options, active development and maintenance, with what each includes. No term, notice or allowance detail.
 - No 12-week plan, no “what we can build next” section, and no talk of starting with a few TV panels and growing. The TV shows all six companies at once.
 - “Next steps” opens with signing the master services agreement and statement of work, then a short, friendly list of access steps with no conditions.
@@ -208,7 +208,15 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 - “Security updates and fixes.”
 - “No new features. Switch back to active development when you’re ready for more.”
 
-Term, notice, on-site work and usage allowance belong in the agreement.
+**Below both cards, a navy “all inclusive” panel:**
+
+**H3:** “Both options are all inclusive” — “No separate bills for the pieces it runs on.”
+
+- **“Computer hardware”** — “The computer that runs your office TV, plus the KVM.”
+- **“Cloud servers”** — “Private cloud networks (VPCs) and the compute your assistant runs on.”
+- **“AI usage”** — “Up to $200 a month for the assistant.”
+
+Term, notice and on-site work belong in the agreement.
 
 ### 8. Next steps — `#next-steps`
 
@@ -373,8 +381,8 @@ Review the implementation against this checklist before any publication. Repeat 
 ### Content and scope
 
 - [ ] All 9 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “Next steps” and “Let’s talk.”
-- [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
-- [ ] Monthly options show active development at $3,000 / month and maintenance at $750 / month, with what each includes.
+- [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, “Not included” list, “to confirm” or “if practical” caveats.
+- [ ] Monthly options show active development at $3,000 / month and maintenance at $750 / month, with what each includes, and the all-inclusive panel (hardware and KVM, cloud VPCs and compute, up to $200 a month of AI usage).
 - [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group company records, and up to 6 read-only bank accounts. No money movement is implied.
 - [ ] Hero, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, six cash balances total $216,000, and the phone answers match the TV.
 - [ ] Bryan buys and sets up the computer for the office TV. All six companies show at once, with charts. No panel-count language and no TV brand names.

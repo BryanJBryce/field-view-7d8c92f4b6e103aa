@@ -1621,6 +1621,45 @@ a:hover { text-decoration-thickness: 0.14em; }
   .plans { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; }
 }
 
+/* All-inclusive panel under the monthly options */
+.inclusive {
+  margin-top: 1.25rem;
+  padding: min(1.75rem, 6vw);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff;
+}
+.inclusive h3 { font-size: 1.3em; margin-bottom: 0.25rem; }
+.inclusive > p { color: var(--subtle); margin-bottom: 1.1rem; }
+.inclusive__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.9rem 2rem; }
+.inclusive__list li { position: relative; padding-left: 2.1rem; color: var(--subtle); }
+.inclusive__list strong { display: block; color: #fff; }
+.inclusive__list .money { color: #fff; font-weight: 700; }
+.inclusive__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #fff;
+}
+.inclusive__list li::after {
+  content: "";
+  position: absolute;
+  left: 0.52rem;
+  top: calc(0.15em + 0.27rem);
+  width: 0.33rem;
+  height: 0.62rem;
+  border-right: 2px solid var(--primary-dark);
+  border-bottom: 2px solid var(--primary-dark);
+  transform: rotate(45deg);
+}
+@media (min-width: 48em) {
+  .inclusive__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* 9. Next steps --------------------------------------------------- */
 
 .steps {
@@ -1737,7 +1776,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
-  .phone__body, .qgroup, .plan, .step, .docs li, .ftile, .brief, .tile, .hbar__fill, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
+  .phone__body, .qgroup, .plan, .inclusive, .step, .docs li, .ftile, .brief, .tile, .hbar__fill, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }
