@@ -93,7 +93,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   border-radius: 4px;
 }
 
-.money, .tv__total-value, .metric dd, .mini-tv__value, .mini-phone__answer, .balances__total, .bar__value {
+.money, .mini-tv__value, .mini-phone__answer, .balances__total, .bar__value {
   font-variant-numeric: tabular-nums lining-nums;
   white-space: nowrap; /* currency amounts never break across lines */
 }
@@ -112,7 +112,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 .nowrap { white-space: nowrap; }
 
 /* Single-column grids must not grow past the viewport at large text sizes */
-.sources, .outputs, .overview, .qgroups, .split, .points, .tv-points, .phases, .later, .needs, .tv__panel dl {
+.sources, .outputs, .overview, .qgroups, .split, .points, .tv-points, .plans, .needs {
   grid-template-columns: minmax(0, 1fr);
 }
 
@@ -739,95 +739,363 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 /* 7. TV example ---------------------------------------------------- */
 
-.tv { margin: 0; }
+/* A calm product screen: navy summary band over white tiles on cool gray.
+   One blue family for data. Every number is text; charts are aria-hidden
+   with a visually hidden sentence beside each one. */
+.tv {
+  --tv-canvas: #eaf0f6;
+  --tv-tile: #ffffff;
+  --tv-hair: #d3dee9;
+  --tv-ink: #1c375a;
+  --tv-ink-2: #3f5b7e;
+  --tv-band: #1c375a;
+  --tv-band-hair: rgb(215 234 255 / 0.18);
+  --tv-band-muted: #c6dcf2;
+  --tv-band-line: #8cc4f5;
+  --tv-data: #1b75ba;
+  --tv-data-soft: #8fb8e3;
+  margin: 0;
+}
 
 .tv__bezel {
-  padding: min(0.75rem, 3.75vw);
-  border-radius: 18px;
+  padding: min(0.6rem, 3vw);
+  border-radius: 16px;
   background: var(--bezel);
-  box-shadow: 0 18px 40px rgb(28 55 90 / 0.28);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.06) inset, 0 18px 40px rgb(28 55 90 / 0.26);
+  container: tv / inline-size;
 }
 
 .tv__screen {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.25rem;
-  align-content: center;
-  padding: min(1.25rem, 6.25vw);
-  border-radius: 8px;
-  background: var(--tv-bg);
-  color: var(--tv-text);
-  container-type: inline-size;
+  gap: 0.75em;
+  padding: 0.75em;
+  border-radius: 6px;
+  background: var(--tv-canvas);
+  color: var(--tv-ink);
+  font-size: 0.9em;
+  line-height: 1.3;
+}
+
+.tv__screen p { margin: 0; }
+
+.tv__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Summary band */
+.tv__band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75em;
+  padding: 1em 1.1em 1.1em;
+  border-radius: 10px;
+  background: var(--tv-band);
+  color: #fff;
 }
 
 .tv__flag {
   justify-self: start;
   max-width: 100%;
-  margin: 0;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid var(--tv-flag);
-  border-radius: 8px;
-  color: var(--tv-flag);
-  font-weight: 700;
+  padding: 0.2em 0.75em;
+  border: 1px solid var(--tv-band-line);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 600;
 }
 
-.tv__total p { margin: 0; }
-.tv__total-label { color: var(--tv-muted); font-weight: 600; font-size: 1.1em; }
+.tv__total-label, .tv__trend-title { color: var(--tv-band-muted); font-weight: 600; }
 .tv__total-value {
-  font-size: min(clamp(2.6rem, 1.5rem + 5vw, 5.5rem), 20cqw);
-  font-weight: 800;
-  line-height: 1.05;
+  font-size: min(2.9em, 17cqw);
+  font-weight: 700;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
-.tv__total-note { color: var(--tv-muted); }
+.tv__total-note { color: var(--tv-band-muted); font-size: 0.9em; }
+.tv__total-note .money { color: #fff; font-weight: 600; }
 
-.tv__panels { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
-
-.tv__panel {
-  padding: min(1rem, 5vw) min(1.1rem, 5.5vw);
-  container-type: inline-size;
-  border-radius: var(--radius);
-  background: var(--tv-panel);
-  border: 1px solid var(--tv-panel-rule);
+.tv__trend-title {
+  padding-top: 0.75em;
+  border-top: 1px solid var(--tv-band-hair);
+  font-size: 0.85em;
 }
 
-.tv__company { font-weight: 800; font-size: 1.1em; margin-bottom: 0.5rem; hyphens: auto; }
+.trend { min-height: 7.5em; display: grid; }
 
-.tv__panel dl { margin: 0; display: grid; gap: 0.6rem; }
-.metric dt { color: var(--tv-muted); }
-.metric dd { margin: 0; font-size: min(2em, 22cqw); font-weight: 800; line-height: 1.1; }
-.metric--other { padding-top: 0.6rem; border-top: 1px solid var(--tv-panel-rule); }
-.metric--other dd { font-size: min(1.35em, 22cqw); font-weight: 700; }
+.trend__chart {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: minmax(5em, 1fr) auto;
+  column-gap: 0.6em;
+  padding-top: 0.5em;
+}
+
+.trend__y {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  width: 2.6em;
+  color: var(--tv-band-muted);
+  font-size: 0.8em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.trend__y span {
+  position: absolute;
+  right: 0;
+  top: var(--y);
+  transform: translateY(-50%);
+}
+
+.trend__plot { grid-column: 2; grid-row: 1; position: relative; }
+
+.trend__plot svg, .spark svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.trend__grid { stroke: var(--tv-band-hair); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.trend__line {
+  fill: none;
+  stroke: var(--tv-band-line);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.trend__dot, .spark__dot {
+  position: absolute;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.trend__dot {
+  left: var(--x);
+  top: var(--y);
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--tv-band);
+}
+
+.trend__x {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  height: 1.6em;
+  color: var(--tv-band-muted);
+  font-size: 0.8em;
+}
+.trend__x span {
+  position: absolute;
+  bottom: 0;
+  left: var(--x);
+  transform: translateX(-50%);
+  line-height: 1;
+}
+
+/* Company tiles */
+.tv__tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75em; }
+
+.tile {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-width: 0;
+  padding: 0.9em 1em 0.8em;
+  border: 1px solid var(--tv-hair);
+  border-radius: 10px;
+  background: var(--tv-tile);
+  box-shadow: 0 1px 2px rgb(28 55 90 / 0.06), 0 6px 16px rgb(28 55 90 / 0.05);
+}
+
+.tile__name {
+  font-size: 1em;
+  font-weight: 650;
+  letter-spacing: 0;
+  color: var(--tv-ink);
+}
+
+.tile__cash {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.45em;
+  margin-top: 0.1em;
+}
+.tile__value {
+  font-size: min(1.9em, 13cqw);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.tile__unit { color: var(--tv-ink-2); font-size: 0.8em; }
+
+.tile__chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-top: 0.6em;
+}
+
+.tile__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 0.75em;
+  color: var(--tv-ink-2);
+  font-size: 0.8em;
+}
+.tile__caption .money { color: var(--tv-ink); font-weight: 600; }
+
+/* Sparkline: cash on one shared relative scale (70% to 115% of today's
+   balance) so every company's line is comparable. */
+.spark {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 3.5em;
+  margin-inline: 0.35em;
+}
+.spark polyline {
+  fill: none;
+  stroke: var(--tv-data);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.spark__dot {
+  left: 100%;
+  top: 33.3%;
+  background: var(--tv-data);
+  box-shadow: 0 0 0 2px var(--tv-tile);
+}
+
+/* Columns from a zero baseline; the latest period in the accent */
+.cols {
+  flex: 1 1 auto;
+  min-height: 3.5em;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: end;
+  gap: 2px;
+  border-bottom: 1px solid var(--tv-hair);
+}
+.cols--8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.cols span {
+  justify-self: center;
+  width: min(100%, 1.5em);
+  height: var(--h);
+  border-radius: 4px 4px 0 0;
+  background: var(--tv-data-soft);
+}
+.cols .cols__now { background: var(--tv-data); }
+
+.tile__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 0.75em;
+  margin-top: 0.7em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--tv-hair);
+  color: var(--tv-ink-2);
+  font-size: 0.85em;
+}
+.tile__foot > span:last-child { color: var(--tv-ink); font-weight: 650; }
+
+.rent { display: inline-flex; align-items: center; gap: 0.45em; }
+.rent__ticks { display: inline-flex; gap: 0.2em; }
+.rent__ticks i {
+  position: relative;
+  width: 1.05em;
+  height: 1.05em;
+  border-radius: 50%;
+  background: var(--tv-data);
+}
+.rent__ticks i::after {
+  content: "";
+  position: absolute;
+  left: 0.37em;
+  top: 0.2em;
+  width: 0.25em;
+  height: 0.48em;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+}
 
 .tv__stand {
-  width: 30%;
-  max-width: 14rem;
-  height: 0.9rem;
+  width: 22%;
+  max-width: 12rem;
+  height: 0.8rem;
   margin: 0 auto;
   background: var(--bezel);
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
 }
 
-
-@media (min-width: 64em) {
-  .tv__bezel { padding: min(1.1rem, 1.75vw); border-radius: 22px; }
-  .tv__screen {
-    aspect-ratio: 16 / 9;
-    padding: min(2rem, 3.2vw) min(2.25rem, 3.6vw);
-    grid-template-columns: minmax(0, 1fr);
-    align-content: center;
-    gap: 1.75rem;
+/* Tablet widths: two tiles per row, chart beside the total */
+@container tv (min-width: 30em) {
+  .tv__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tv__band {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    column-gap: 2em;
+    row-gap: 0.4em;
   }
-  .tv__total-value { font-size: min(clamp(4rem, 2rem + 4vw, 6.5rem), 20cqw); }
+  .tv__flag { grid-column: 1 / -1; margin-bottom: 0.4em; }
+  .tv__total { grid-column: 1; grid-row: 2 / 4; align-self: center; }
+  .tv__trend-title { grid-column: 2; grid-row: 2; padding-top: 0; border-top: 0; }
+  .trend { grid-column: 2; grid-row: 3; }
 }
 
-/* Panel columns follow the screen's own width in em (which follows the
-   text size), so each bank figure keeps room to stay on one line. */
-@container (min-width: 24em) {
-  .tv__panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@container (min-width: 50em) {
-  .tv__panels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Desktop: a 16:9 screen with all six companies at once. Type scales with
+   the TV, with a rem floor so enlarged text still grows (and the screen
+   then grows taller rather than clipping). */
+@media (min-width: 64em) {
+  .tv__bezel { padding: min(1rem, 1.4vw); border-radius: 20px; }
+
+  @container tv (min-width: 44rem) {
+    .tv__screen {
+      aspect-ratio: 16 / 9;
+      grid-template-rows: auto 1fr;
+      gap: 1.6cqw;
+      padding: 1.6cqw;
+      font-size: max(0.875rem, 1.42cqw);
+    }
+    .tv__band {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) auto;
+      grid-template-rows: auto minmax(0, 1fr);
+      column-gap: 3em;
+      row-gap: 0.3em;
+      padding: 1.1em 1.5em 1em;
+    }
+    .tv__flag { grid-column: 3; grid-row: 1; margin: 0; align-self: start; }
+    .tv__total { grid-column: 1; grid-row: 1 / 3; }
+    .tv__trend-title { grid-column: 2; grid-row: 1; align-self: center; }
+    .trend { grid-column: 2 / 4; grid-row: 2; min-height: 5.25em; }
+    .trend__chart { grid-template-rows: minmax(3.25em, 1fr) auto; }
+    .tv__total-value { font-size: 3.4em; }
+
+    .tv__tiles {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1.6cqw;
+    }
+    .tile { padding: 0.95em 1.15em 0.8em; }
+    .tile__value { font-size: 2em; }
+    .spark, .cols { min-height: 2em; }
+  }
 }
 
 .tv-points {
@@ -841,97 +1109,45 @@ a:hover { text-decoration-thickness: 0.14em; }
   .tv-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* 8. Timeline ------------------------------------------------------ */
+/* 8. Monthly options ---------------------------------------------- */
 
-.phases {
-  display: grid;
-  gap: 2rem;
-  margin-block: 2rem;
-}
+.plans { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
 
-.phase {
-  padding-top: 1rem;
-  border-top: 5px solid var(--primary);
-}
-
-.phase h3 { font-size: 1.35em; margin-bottom: 0.75rem; }
-
-.weeks li {
-  padding-block: 0.65rem;
-  border-bottom: 1px solid var(--rule);
-}
-.weeks li:last-child { border-bottom: 0; }
-
-.phase h3 .phase__weeks {
-  display: block;
-  color: var(--accent);
-  font-size: 0.65em;
-  font-weight: 800;
-  margin-bottom: 0.2rem;
-}
-
-.phase { display: flex; flex-direction: column; }
-.weeks { flex: 1; }
-
-.phase__have {
-  margin-top: 1rem;
-  padding: 0.9rem 1.1rem;
-  border-radius: var(--radius);
-  background: var(--subtle);
-  font-weight: 650;
-}
-.phase__have span {
-  display: block;
-  color: var(--primary);
-  font-size: 0.85em;
-  font-weight: 800;
-}
-
-.week {
-  display: block;
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 0.9em;
-}
-
-@media (min-width: 56em) {
-  .phases { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
-}
-
-/* 9. Price -------------------------------------------------------- */
-
-.price {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.75rem 2.5rem;
-  padding: min(1.75rem, 6vw) min(2rem, 6vw);
+.plan {
+  padding: min(1.75rem, 6vw);
+  border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--surface);
 }
-.price p { margin: 0; }
-.price__amount { font-weight: 800; line-height: 1; }
-.price__amount .money { font-size: min(clamp(3rem, 2rem + 4vw, 4.5rem), 15vw); letter-spacing: -0.02em; }
-.price__unit { font-size: 1.4em; color: var(--muted); }
-.price__note { max-width: 40ch; color: var(--muted); }
-
-/* 10. What we can build next --------------------------------------- */
-
-.later { display: grid; gap: 1rem; }
-
-.later li {
-  padding: 1rem 1.25rem;
-  border-left: 4px solid var(--accent);
-  background: var(--surface-alt);
-  border-radius: 0 var(--radius) var(--radius) 0;
+.plan--main {
+  border: 2px solid var(--primary);
+  box-shadow: 0 10px 28px rgb(28 55 90 / 0.12);
 }
-.later strong { display: block; font-size: 1.1em; }
+.plan h3 { font-size: 1.3em; margin-bottom: 0.5rem; }
+.plan__amount { font-weight: 800; line-height: 1; margin-bottom: 1.25rem; }
+.plan__amount .money { font-size: min(clamp(2.5rem, 1.8rem + 3vw, 3.75rem), 15vw); letter-spacing: -0.02em; }
+.plan:not(.plan--main) .plan__amount .money { color: var(--muted); }
+.plan__unit { font-size: 1.25em; color: var(--muted); }
+
+.ticks { display: grid; gap: 0.6rem; }
+.ticks li { position: relative; padding-left: 2rem; }
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.3em;
+  width: 0.45rem;
+  height: 0.8rem;
+  border-right: 3px solid var(--primary);
+  border-bottom: 3px solid var(--primary);
+  transform: rotate(45deg);
+}
 
 @media (min-width: 48em) {
-  .later { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .plans { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; }
 }
 
-/* 11. From you ----------------------------------------------------- */
+/* 9. From you ----------------------------------------------------- */
 
 .needs {
   display: grid;
@@ -971,7 +1187,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   .needs { grid-template-columns: 1fr 1fr; }
 }
 
-/* 12. Next step ---------------------------------------------------- */
+/* 10. Next step ---------------------------------------------------- */
 
 .section--closing {
   background: var(--primary);
@@ -995,8 +1211,13 @@ a:hover { text-decoration-thickness: 0.14em; }
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
   .bar__fill { background: CanvasText; forced-color-adjust: none; }
-  .bar__track, .phone__body, .qgroup, .phase__have { border: 1px solid CanvasText; }
-  .mini-phone__ask, .mini-phone__answer, .chat li, .tv__panel, .reassure, .later li { border: 1px solid CanvasText; }
+  .bar__track, .phone__body, .qgroup, .plan { border: 1px solid CanvasText; }
+  .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band, .reassure { border: 1px solid CanvasText; }
+  .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
+  .trend__grid { stroke: GrayText; forced-color-adjust: none; }
+  .trend__dot, .spark__dot, .cols span, .cols .cols__now, .rent__ticks i { background: CanvasText; box-shadow: none; forced-color-adjust: none; }
+  .cols span:not(.cols__now) { background: GrayText; }
+  .rent__ticks i::after { border-color: Canvas; forced-color-adjust: none; }
   .source::before, .source::after, .output::before, .output::after,
   .flow__assistant::before, .flow__assistant::after,
   .node--assistant::before, .output__name::before,

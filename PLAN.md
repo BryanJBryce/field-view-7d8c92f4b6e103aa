@@ -14,10 +14,11 @@ Use only the supplied client-facing scope and this brief. Do not consult additio
 
 Bryan's direction: “Focus on what he gets, not on contractual edge cases.” This overrides the earlier requirement to keep limits explicit on the page.
 
-- Lead with what Craig sees and uses: connected books, bank balances together, answers on his phone, the office TV dashboard, sample questions and the 12-week plan. Each gets its own section with a visual.
+- Lead with what Craig sees and uses: connected books, bank balances together, answers on his phone, the office TV dashboard, sample questions and the monthly options. Each gets its own section with a visual.
 - Every heading names something Craig gets. The only exceptions are “What I need from you” and “Let’s talk.”
-- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term, cancellation and maintenance option; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
-- Price appears as one line, “$3,000 / month”, with one plain sentence about what continues each month.
+- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term and cancellation; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
+- Pricing shows two plain options, active development and maintenance, with what each includes. No term, notice or allowance detail.
+- No 12-week plan, no “what we can build next” section, and no talk of starting with a few TV panels and growing. The TV shows all six companies at once.
 - “What I need from you” is a short, friendly list of access steps with no conditions.
 - No internal details on the page: percentages, hours, other clients or prior vendors.
 
@@ -32,7 +33,6 @@ Copy is framed around what Craig said he wants in the October 28 kickoff. The ki
 - Start with finances, then build on it.
 - See what came in and went out of the bank accounts.
 - A summary of each weekend at the farm store, which is open on weekends. Clover stays as the store runs it; it is connected, not replaced.
-- Later: email, the construction pipeline, and which company owns which equipment and property.
 
 The sections below supply final visible wording. Layout instructions and technical notes are for the implementer and must not appear as page copy.
 
@@ -68,8 +68,8 @@ Six linked cards, numbered 1–6, each jumping to its section. Three columns on 
 | 2 | “You wanted to see what’s coming in and going out.” | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
 | 3 | “You wanted to ask from anywhere.” | “Answers on your phone” | “Say or type a question. Get a straight answer.” | `#phone` |
 | 4 | “You wanted answers, not reports.” | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
-| 5 | “You wanted one big screen instead of six.” | “Your office TV dashboard” | “Each company gets its own panel on one TV.” | `#tv-example` |
-| 6 | “You wanted to get started, then build on it.” | “Your 12-week plan” | “First answers in week 2. Everything checked by week 12.” | `#timeline` |
+| 5 | “You wanted one big screen instead of six.” | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
+| 6 | “You wanted to keep adding to it over time.” | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
 
 ### 3. Books connected — `#one-place`
 
@@ -87,7 +87,7 @@ Use the diagram specification later in this plan.
 
 Two columns on wide screens: a white card with the example balances, and the benefit copy beside it.
 
-**Card:** “Example data” tag, label “Cash in connected bank accounts”, total “$186,400”, then one horizontal bar per company, sorted largest first, each scaled to the largest balance:
+**Card:** “Example data” tag, label “Cash in connected bank accounts”, total “$216,000”, then one horizontal bar per company, sorted largest first, each scaled to the largest balance:
 
 | Company | Value |
 | --- | --- |
@@ -95,6 +95,8 @@ Two columns on wide screens: a white card with the example balances, and the ben
 | Tiago LLC | $38,100 |
 | Heritage Homestead LLC | $29,400 |
 | Dirt Kings | $24,700 |
+| Thirty Acres LLC | $18,600 |
+| Bloomfield Property Group | $11,000 |
 
 Bars are decorative (`aria-hidden`); names and values are text.
 
@@ -102,7 +104,7 @@ Bars are decorative (`aria-hidden`); names and values are text.
 
 **Points (tick icons):**
 
-- “**Up to 6 bank accounts** in one view, across your companies.”
+- “**All six companies** in one view, up to 6 bank accounts.”
 - “**Read-only.** Nothing can move money.”
 - “**Your password stays yours.** I never see or store it.”
 
@@ -124,7 +126,7 @@ Benefit copy beside a CSS phone mockup with a static conversation. No input fiel
 
 | You ask | Answer |
 | --- | --- |
-| “How much cash is in my connected bank accounts?” | “$186,400 across four companies. Velocity Builders has the most, at $94,200.” |
+| “How much cash is in my connected bank accounts?” | “$216,000 across your six companies. Velocity Builders has the most, at $94,200.” |
 | “How much is past due for Velocity?” | “$12,800 in past-due invoices.” |
 | “How did the farm store do this weekend?” | “$8,420 in sales at Heritage Homestead.” |
 
@@ -147,80 +149,69 @@ The transfer question asks about recorded activity; it must never look like a co
 
 **H2:** “Your office TV dashboard”
 
-**Intro:** “One big screen instead of six, split by company. When your operators come in to meet, you’re all looking at the same numbers.”
+**Intro:** “All six companies on one screen, with your total cash across the top. When your operators come in to meet, you’re all looking at the same numbers.”
 
 **Visible label, inside the mock TV:** “Example data, not your accounts”
 
-Build a landscape TV silhouette using HTML/CSS, with a restrained dark bezel. Its content is live HTML text, not a screenshot. Show this exact static example:
+Design: a premium financial-services product look in the spirit of American Express’s app UI (no Amex name, logo, card imagery or marks). A navy summary band sits over white tiles on a cool-gray screen, inside a restrained dark bezel with a stand. Live HTML text with inline SVG charts, no JS or chart library. One blue data hue family: past periods #8FB8E3, latest period #1B75BA. No red or green; changes are written out in words. At ≥64em the screen is 16:9 with a 3×2 tile grid; two per row on tablets; stacked on phones.
 
-| Area | Label | Value |
-| --- | --- | --- |
-| Main total | Cash in connected bank accounts | $186,400 |
-| Velocity Builders panel | Bank cash | $94,200 |
-| Velocity Builders panel | Past-due invoices | $12,800 |
-| Tiago LLC panel | Bank cash | $38,100 |
-| Dirt Kings panel | Bank cash | $24,700 |
-| Heritage Homestead LLC panel | Bank cash | $29,400 |
-| Heritage Homestead LLC panel | Farm store sales this weekend | $8,420 |
+**Summary band:** “Cash in connected bank accounts” $216,000, “Up $26,200 since June, across all six companies”, with a combined cash line chart (Jun to Now).
 
-**Inside the TV, beneath the total:** “Four companies shown in this example.”
+**Six tiles, largest cash first.** Each shows company name, bank cash, one small chart with a caption, and one footer fact:
+
+| Company | Bank cash | Chart | Footer |
+| --- | --- | --- | --- |
+| Velocity Builders | $94,200 | Sales by month (Oct $121,800) | Past-due invoices $12,800 |
+| Tiago LLC | $38,100 | Cash, June to now | Up $4,300 |
+| Heritage Homestead LLC | $29,400 | Farm store sales, last 8 weekends | Farm store this weekend $8,420 |
+| Dirt Kings | $24,700 | Cash, June to now | Down $3,200 |
+| Thirty Acres LLC | $18,600 | Cash, June to now | Rent this month: 2 of 2 tenants paid |
+| Bloomfield Property Group | $11,000 | Cash, June to now | Up $1,400 |
+
+Invented example series (month-end cash Jun, Jul, Aug, Sep, Oct, now). Each line ends at the current balance, and the monthly values add up to the combined line:
+
+- Velocity Builders 81,500 / 86,900 / 90,300 / 88,100 / 91,700 / 94,200
+- Tiago LLC 33,800 / 35,200 / 34,100 / 36,500 / 37,200 / 38,100
+- Dirt Kings 27,900 / 26,400 / 28,100 / 25,300 / 23,800 / 24,700
+- Heritage Homestead LLC 21,800 / 24,600 / 27,300 / 28,900 / 30,100 / 29,400
+- Thirty Acres LLC 15,200 / 15,900 / 16,700 / 17,200 / 17,900 / 18,600
+- Bloomfield Property Group 9,600 / 10,200 / 10,800 / 10,400 / 11,300 / 11,000
+- Combined 189,800 / 199,200 / 207,300 / 206,400 / 212,000 / 216,000
+- Velocity Builders sales May to Oct: 96,400 / 108,700 / 102,300 / 117,900 / 112,600 / 121,800
+- Farm store sales, last 8 weekends: 6,180 / 7,040 / 6,620 / 7,350 / 8,910 / 7,780 / 8,050 / 8,420
+
+Sales and receivables are never added into cash. Every chart is `aria-hidden` and has a hidden text sentence listing its values. No fake timestamp, live or connected status, or TV brand names.
 
 **Below the TV, three points:**
 
 - “**I set it up for you.** I buy and set up the computer that runs your TV.”
-- “**It grows with you.** Start with 2 company panels and grow to 4 or more.”
+- “**All six companies at once.** Each one gets its own spot, with its cash and a chart.”
 - “**You choose what’s on it.** Cash, money owed, sales, whatever you want your team to see.”
 
-The four bank cash values sum to $186,400. Receivables and Clover sales are separate measures and are not added to cash. No fake timestamp or connection status. On narrow screens, let the bezel stretch vertically and stack the panels.
+### 8. Monthly options — `#monthly`
 
-### 8. Timeline — `#timeline`
+**H2:** “Your monthly options”
 
-**H2:** “Your 12-week plan”
+**Intro:** “We start with active development. When you have what you need and don’t want new features for a while, you can drop to maintenance.”
 
-**Intro:** “Finances first, the way you wanted. Week 1 starts as soon as I have access to your accounts, and you’ll see working answers early.”
+Two cards side by side on wide screens, stacked on phones. Active development is the primary card (blue border, larger); maintenance is quieter. Tick lists, no tier comparison table, discount or “most popular” tag.
 
-Three phases side by side on desktop, stacked on phones. Each H3 carries a small week range above the phase name, and each phase ends with a pale “You’ll have” box.
+**Active development — “$3,000 / month”**
 
-| Phase | Week | Copy |
-| --- | --- | --- |
-| Connect (Weeks 1–4) | 1 | “Kickoff, access and your starter questions.” |
-| | 2 | “Connect all 3 QuickBooks accounts. First answers on your phone.” |
-| | 3 | “Connect bank accounts and Clover.” |
-| | 4 | “Demo of your first 2 TV panels.” |
-| | You’ll have | “answers on your phone and a first look at your TV.” |
-| Answer (Weeks 5–8) | 5 | “Set up the TV in your office.” |
-| | 6 | “Farm store weekend summary and Thirty Acres rent tracking.” |
-| | 7 | “Check the starter questions and fix any wrong answers.” |
-| | 8 | “Grow the dashboard to 4 or more company panels.” |
-| | You’ll have | “the TV running in your office with all your main companies.” |
-| Prove (Weeks 9–12) | 9–10 | “Use it day to day. I fix and polish.” |
-| | 11 | “Check your questions against live data.” |
-| | 12 | “Handoff, a short how-to sheet and what comes next.” |
-| | You’ll have | “checked answers you can trust, on your phone and the TV.” |
+- “I’m building for you every week: new connections, new views and the changes you ask for.”
+- “A weekly update or short demo.”
+- “Text or email me an idea any time, and we’ll fit it in.”
+- “Everything in maintenance, too.”
 
-### 9. Price — `#monthly`
+**Maintenance — “$750 / month”**
 
-**H2:** “One simple monthly price”
+- “Everything keeps running and stays connected.”
+- “Security updates and fixes.”
+- “No new features. Switch back to active development when you’re ready for more.”
 
-**Price:** “$3,000 / month”
+Term, notice, on-site work and usage allowance belong in the agreement.
 
-**Beside it:** “You get a weekly update or short demo, and I keep your connections working.”
-
-Nothing else. Term, on-site work, maintenance option and usage allowance belong in the agreement.
-
-### 10. What comes next — `#next-project`
-
-**H2:** “What we can build next”
-
-**Intro:** “You mentioned more you’d like this to do. Once your finances are running, you pick what we add next.”
-
-Three cards in a row on wide screens:
-
-- **“Email”** — “The important messages pulled out for you, so you’re not sorting through all of them.”
-- **“Construction pipeline”** — “Homes under construction, spec homes and how long each has been on the market.”
-- **“Equipment and property”** — “Which company owns what, and when it’s due for service.”
-
-### 11. Client inputs — `#from-you`
+### 9. Client inputs — `#from-you`
 
 **H2:** “What I need from you”
 
@@ -234,7 +225,7 @@ Simple list with small decorative check-outline icons. No checkboxes, no conditi
 - “The Thirty Acres rent sheet or account.”
 - “Your questions and what you want on the TV. Notes or a voice memo are fine.”
 
-### 12. Next step — `#next-step`
+### 10. Next step — `#next-step`
 
 **H2:** “Let’s talk.”
 
@@ -378,15 +369,15 @@ Review the implementation against this checklist before any publication. Repeat 
 
 ### Content and scope
 
-- [ ] All 12 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
-- [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, maintenance option, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
-- [ ] Price appears once, as “$3,000 / month”, with one plain sentence.
+- [ ] All 10 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
+- [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
+- [ ] Monthly options show active development at $3,000 / month and maintenance at $750 / month, with what each includes.
 - [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group company records, and up to 6 read-only bank accounts. No money movement is implied.
-- [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, four cash balances total $186,400, and the phone answers match the TV.
-- [ ] Bryan buys and sets up the computer for the office TV; it starts with 2 panels and grows to 4 or more. No TV brand names.
+- [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, six cash balances total $216,000, and the phone answers match the TV.
+- [ ] Bryan buys and sets up the computer for the office TV. All six companies show at once, with charts. No panel-count language and no TV brand names.
 - [ ] All ten questions are visible in four groups.
 - [ ] Copy echoes Craig’s kickoff goals in plain words: no direct quotes, no prior software vendor names, nothing private from the call. Clover is connected, not replaced.
-- [ ] Each timeline phase ends with a “You’ll have” outcome.
+- [ ] No 12-week plan and no “what we can build next” section.
 - [ ] “What I need from you” is five short access items with no conditions and no request for passwords on the page.
 - [ ] CTA gives a reply path without a form, invented email, dummy button, embedded scheduler or contract-acceptance behavior.
 - [ ] First-person singular for Bryan; Craig is “you.” No percentages, hours, other clients or prior vendors. No em-dash-heavy or slogan copy.
@@ -394,7 +385,7 @@ Review the implementation against this checklist before any publication. Repeat 
 ### Visual and interaction review
 
 - [ ] Inspect rendered views at 320, 390, 768, 1440 and 1920 CSS pixels wide; include a 1920×1080 TV-like view. Save representative mobile and wide screenshots outside the public repo. If actual TV viewing is unavailable, state that limitation.
-- [ ] On a phone, the hero action is easy to reach; all source labels wrap; diagram flows downward; TV panels stack and remain readable; timeline remains in order. No horizontal page overflow, clipped prices or overlapping arrows.
+- [ ] On a phone, the hero action is easy to reach; all source labels wrap; diagram flows downward; TV tiles stack and remain readable. No horizontal page overflow, clipped prices or overlapping arrows.
 - [ ] On the wide view, diagram and dashboard communicate without zooming. Read the company names, amounts, example label and conditional notes at normal zoom; flag a real room-distance check as pending if untested.
 - [ ] Arrows correctly flow sources → assistant → phone/TV. The shared bank node does not imply six accounts for every company.
 - [ ] Keyboard navigation reaches skip link, header and hero links, the six overview cards, and any supplied contact link in a sensible order, with visible focus and no traps or obscured destinations.

@@ -31,17 +31,17 @@
           <p class="byline">Bryan Bryce · Bryce Labs LLC</p>
         </div>
 
-        <div class="hero__visual" role="img" aria-label="Example data: your phone and your office TV both show $186,400 cash in connected bank accounts.">
+        <div class="hero__visual" role="img" aria-label="Example data: your phone and your office TV both show $216,000 cash in connected bank accounts.">
           <p class="tag">Example data</p>
           <div class="mini-tv">
             <div class="mini-tv__screen">
               <span class="mini-tv__label">Cash in connected bank accounts</span>
-              <span class="mini-tv__value">$186,400</span>
+              <span class="mini-tv__value">$216,000</span>
             </div>
           </div>
           <div class="mini-phone">
             <span class="mini-phone__ask">How much cash is in my connected bank accounts?</span>
-            <span class="mini-phone__answer">$186,400</span>
+            <span class="mini-phone__answer">$216,000</span>
           </div>
         </div>
       </div>
@@ -90,15 +90,15 @@
               <span class="overview__num" aria-hidden="true">5</span>
               <p class="overview__want">You wanted one big screen instead of six.</p>
               <h3>Your office TV dashboard</h3>
-              <p>Each company gets its own panel on one TV.</p>
+              <p>All six companies on one TV, with charts.</p>
             </a>
           </li>
           <li>
-            <a class="overview__card" href="#timeline">
+            <a class="overview__card" href="#monthly">
               <span class="overview__num" aria-hidden="true">6</span>
-              <p class="overview__want">You wanted to get started, then build on it.</p>
-              <h3>Your 12-week plan</h3>
-              <p>First answers in week 2. Everything checked by week 12.</p>
+              <p class="overview__want">You wanted to keep adding to it over time.</p>
+              <h3>Your monthly options</h3>
+              <p>Active building when you want new things. Upkeep when you don’t.</p>
             </a>
           </li>
         </ul>
@@ -181,7 +181,7 @@
           <figure class="balances">
             <p class="tag tag--inline">Example data</p>
             <p class="balances__label">Cash in connected bank accounts</p>
-            <p class="balances__total">$186,400</p>
+            <p class="balances__total">$216,000</p>
             <ul class="bars">
               <li class="bar" style="--share: 100%">
                 <span class="bar__name">Velocity Builders</span>
@@ -203,13 +203,23 @@
                 <span class="bar__value">$24,700</span>
                 <span class="bar__track" aria-hidden="true"><span class="bar__fill"></span></span>
               </li>
+              <li class="bar" style="--share: 19.7%">
+                <span class="bar__name">Thirty Acres LLC</span>
+                <span class="bar__value">$18,600</span>
+                <span class="bar__track" aria-hidden="true"><span class="bar__fill"></span></span>
+              </li>
+              <li class="bar" style="--share: 11.7%">
+                <span class="bar__name">Bloomfield Property Group</span>
+                <span class="bar__value">$11,000</span>
+                <span class="bar__track" aria-hidden="true"><span class="bar__fill"></span></span>
+              </li>
             </ul>
           </figure>
 
           <div class="points-wrap">
             <p class="intro">One number for all your cash, the balance for each company underneath it, and what came in and went out. No logging in to each bank to find out.</p>
             <ul class="points">
-              <li><strong>Up to 6 bank accounts</strong> in one view, across your companies.</li>
+              <li><strong>All six companies</strong> in one view, up to 6 bank accounts.</li>
               <li><strong>Read-only.</strong> Nothing can move money.</li>
               <li><strong>Your password stays yours.</strong> I never see or store it.</li>
             </ul>
@@ -237,7 +247,7 @@
               <p class="tag tag--inline">Example data</p>
               <ol class="chat">
                 <li class="chat__ask">How much cash is in my connected bank accounts?</li>
-                <li class="chat__answer"><span class="money">$186,400</span> across four companies. Velocity Builders has the most, at <span class="money">$94,200</span>.</li>
+                <li class="chat__answer"><span class="money">$216,000</span> across your six companies. Velocity Builders has the most, at <span class="money">$94,200</span>.</li>
                 <li class="chat__ask">How much is past due for Velocity?</li>
                 <li class="chat__answer"><span class="money">$12,800</span> in past-due invoices.</li>
                 <li class="chat__ask">How did the farm store do this weekend?</li>
@@ -293,43 +303,124 @@
     <section class="section section--tint" id="tv-example" aria-labelledby="tv-example-title">
       <div class="wrap">
         <h2 id="tv-example-title">Your office TV dashboard</h2>
-        <p class="intro">One big screen instead of six, split by company. When your operators come in to meet, you’re all looking at the same numbers.</p>
+        <p class="intro">All six companies on one screen, with your total cash across the top. When your operators come in to meet, you’re all looking at the same numbers.</p>
 
-        <figure class="tv">
+        <figure class="tv" aria-label="Example office TV dashboard, using example data">
           <div class="tv__bezel">
             <div class="tv__screen">
-              <p class="tv__flag">Example data, not your accounts</p>
-              <div class="tv__total">
-                <p class="tv__total-label">Cash in connected bank accounts</p>
-                <p class="tv__total-value">$186,400</p>
-                <p class="tv__total-note">Four companies shown in this example.</p>
+              <div class="tv__band">
+                <p class="tv__flag">Example data, not your accounts</p>
+                <div class="tv__total">
+                  <p class="tv__total-label">Cash in connected bank accounts</p>
+                  <p class="tv__total-value money">$216,000</p>
+                  <p class="tv__total-note">Up <span class="money">$26,200</span> since June, across all six companies</p>
+                </div>
+                <p class="tv__trend-title">Combined cash, June to now</p>
+                <div class="trend">
+                  <div class="trend__chart" aria-hidden="true">
+                    <div class="trend__y">
+                      <span style="--y: 0%">$220K</span>
+                      <span style="--y: 50%">$200K</span>
+                      <span style="--y: 100%">$180K</span>
+                    </div>
+                    <div class="trend__plot">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+                        <line class="trend__grid" x1="0" y1="0" x2="100" y2="0"/>
+                        <line class="trend__grid" x1="0" y1="50" x2="100" y2="50"/>
+                        <line class="trend__grid" x1="0" y1="100" x2="100" y2="100"/>
+                        <polyline class="trend__line" points="5,75.5 23,52 41,31.75 59,34 77,20 95,10"/>
+                      </svg>
+                      <span class="trend__dot" style="--x: 95%; --y: 10%"></span>
+                    </div>
+                    <div class="trend__x">
+                      <span style="--x: 5%">Jun</span>
+                      <span style="--x: 23%">Jul</span>
+                      <span style="--x: 41%">Aug</span>
+                      <span style="--x: 59%">Sep</span>
+                      <span style="--x: 77%">Oct</span>
+                      <span style="--x: 95%">Now</span>
+                    </div>
+                  </div>
+                  <p class="tv__sr">Combined cash at each month end from June to October, then now: $189,800, $199,200, $207,300, $206,400, $212,000 and $216,000.</p>
+                </div>
               </div>
-              <ul class="tv__panels">
-                <li class="tv__panel">
-                  <p class="tv__company">Velocity Builders</p>
-                  <dl>
-                    <div class="metric"><dt>Bank cash</dt><dd>$94,200</dd></div>
-                    <div class="metric metric--other"><dt>Past-due invoices</dt><dd>$12,800</dd></div>
-                  </dl>
+
+              <ul class="tv__tiles">
+                <li class="tile">
+                  <h3 class="tile__name">Velocity Builders</h3>
+                  <p class="tile__cash"><span class="tile__value money">$94,200</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Sales by month</span> <span class="money">Oct $121,800</span></p>
+                    <div class="cols" aria-hidden="true">
+                      <span style="--h: 77.1%"></span><span style="--h: 87%"></span><span style="--h: 81.8%"></span><span style="--h: 94.3%"></span><span style="--h: 90.1%"></span><span class="cols__now" style="--h: 97.4%"></span>
+                    </div>
+                    <p class="tv__sr">Sales from May to October: $96,400, $108,700, $102,300, $117,900, $112,600 and $121,800.</p>
+                  </div>
+                  <p class="tile__foot"><span>Past-due invoices</span> <span class="money">$12,800</span></p>
                 </li>
-                <li class="tv__panel">
-                  <p class="tv__company">Tiago LLC</p>
-                  <dl>
-                    <div class="metric"><dt>Bank cash</dt><dd>$38,100</dd></div>
-                  </dl>
+                <li class="tile">
+                  <h3 class="tile__name">Tiago LLC</h3>
+                  <p class="tile__cash"><span class="tile__value money">$38,100</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Cash, June to now</span></p>
+                    <div class="spark" aria-hidden="true">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><polyline points="0,58.4 20,50.2 40,56.7 60,42.7 80,38.6 100,33.3"/></svg>
+                      <span class="spark__dot"></span>
+                    </div>
+                    <p class="tv__sr">Cash from June to now: $33,800, $35,200, $34,100, $36,500, $37,200 and $38,100.</p>
+                  </div>
+                  <p class="tile__foot"><span>Since June</span> <span>Up <span class="money">$4,300</span></span></p>
                 </li>
-                <li class="tv__panel">
-                  <p class="tv__company">Dirt Kings</p>
-                  <dl>
-                    <div class="metric"><dt>Bank cash</dt><dd>$24,700</dd></div>
-                  </dl>
+                <li class="tile">
+                  <h3 class="tile__name">Heritage Homestead LLC</h3>
+                  <p class="tile__cash"><span class="tile__value money">$29,400</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Farm store sales, last 8 weekends</span></p>
+                    <div class="cols cols--8" aria-hidden="true">
+                      <span style="--h: 68.7%"></span><span style="--h: 78.2%"></span><span style="--h: 73.6%"></span><span style="--h: 81.7%"></span><span style="--h: 99%"></span><span style="--h: 86.4%"></span><span style="--h: 89.4%"></span><span class="cols__now" style="--h: 93.6%"></span>
+                    </div>
+                    <p class="tv__sr">Farm store sales for the last 8 weekends, oldest first: $6,180, $7,040, $6,620, $7,350, $8,910, $7,780, $8,050 and $8,420.</p>
+                  </div>
+                  <p class="tile__foot"><span>Farm store this weekend</span> <span class="money">$8,420</span></p>
                 </li>
-                <li class="tv__panel">
-                  <p class="tv__company">Heritage Homestead LLC</p>
-                  <dl>
-                    <div class="metric"><dt>Bank cash</dt><dd>$29,400</dd></div>
-                    <div class="metric metric--other"><dt>Farm store sales this weekend</dt><dd>$8,420</dd></div>
-                  </dl>
+                <li class="tile">
+                  <h3 class="tile__name">Dirt Kings</h3>
+                  <p class="tile__cash"><span class="tile__value money">$24,700</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Cash, June to now</span></p>
+                    <div class="spark" aria-hidden="true">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><polyline points="0,4.5 20,18 40,2.7 60,27.9 80,41.4 100,33.3"/></svg>
+                      <span class="spark__dot"></span>
+                    </div>
+                    <p class="tv__sr">Cash from June to now: $27,900, $26,400, $28,100, $25,300, $23,800 and $24,700.</p>
+                  </div>
+                  <p class="tile__foot"><span>Since June</span> <span>Down <span class="money">$3,200</span></span></p>
+                </li>
+                <li class="tile">
+                  <h3 class="tile__name">Thirty Acres LLC</h3>
+                  <p class="tile__cash"><span class="tile__value money">$18,600</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Cash, June to now</span></p>
+                    <div class="spark" aria-hidden="true">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><polyline points="0,74 20,65.6 40,56 60,50.1 80,41.7 100,33.3"/></svg>
+                      <span class="spark__dot"></span>
+                    </div>
+                    <p class="tv__sr">Cash from June to now: $15,200, $15,900, $16,700, $17,200, $17,900 and $18,600.</p>
+                  </div>
+                  <p class="tile__foot"><span>Rent this month</span> <span class="rent"><span class="rent__ticks" aria-hidden="true"><i></i><i></i></span>2 of 2 tenants paid</span></p>
+                </li>
+                <li class="tile">
+                  <h3 class="tile__name">Bloomfield Property Group</h3>
+                  <p class="tile__cash"><span class="tile__value money">$11,000</span> <span class="tile__unit">bank cash</span></p>
+                  <div class="tile__chart">
+                    <p class="tile__caption"><span>Cash, June to now</span></p>
+                    <div class="spark" aria-hidden="true">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><polyline points="0,61.6 20,49.5 40,37.4 60,45.5 80,27.3 100,33.3"/></svg>
+                      <span class="spark__dot"></span>
+                    </div>
+                    <p class="tv__sr">Cash from June to now: $9,600, $10,200, $10,800, $10,400, $11,300 and $11,000.</p>
+                  </div>
+                  <p class="tile__foot"><span>Since June</span> <span>Up <span class="money">$1,400</span></span></p>
                 </li>
               </ul>
             </div>
@@ -339,77 +430,42 @@
 
         <ul class="tv-points">
           <li><strong>I set it up for you.</strong> I buy and set up the computer that runs your TV.</li>
-          <li><strong>It grows with you.</strong> Start with 2 company panels and grow to 4 or more.</li>
+          <li><strong>All six companies at once.</strong> Each one gets its own spot, with its cash and a chart.</li>
           <li><strong>You choose what’s on it.</strong> Cash, money owed, sales, whatever you want your team to see.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 8. Timeline -->
-    <section class="section" id="timeline" aria-labelledby="timeline-title">
+    <!-- 8. Price -->
+    <section class="section" id="monthly" aria-labelledby="monthly-title">
       <div class="wrap">
-        <h2 id="timeline-title">Your 12-week plan</h2>
-        <p class="intro">Finances first, the way you wanted. Week 1 starts as soon as I have access to your accounts, and you’ll see working answers early.</p>
-
-        <ol class="phases">
-          <li class="phase">
-            <h3><span class="phase__weeks">Weeks 1–4</span> Connect</h3>
-            <ol class="weeks">
-              <li><span class="week">Week 1</span> Kickoff, access and your starter questions.</li>
-              <li><span class="week">Week 2</span> Connect all 3 QuickBooks accounts. First answers on your phone.</li>
-              <li><span class="week">Week 3</span> Connect bank accounts and Clover.</li>
-              <li><span class="week">Week 4</span> Demo of your first 2 TV panels.</li>
-            </ol>
-            <p class="phase__have"><span>You’ll have</span> answers on your phone and a first look at your TV.</p>
+        <h2 id="monthly-title">Your monthly options</h2>
+        <p class="intro">We start with active development. When you have what you need and don’t want new features for a while, you can drop to maintenance.</p>
+        <ul class="plans">
+          <li class="plan plan--main">
+            <h3>Active development</h3>
+            <p class="plan__amount"><span class="money">$3,000</span> <span class="plan__unit">/ month</span></p>
+            <ul class="ticks">
+              <li>I’m building for you every week: new connections, new views and the changes you ask for.</li>
+              <li>A weekly update or short demo.</li>
+              <li>Text or email me an idea any time, and we’ll fit it in.</li>
+              <li>Everything in maintenance, too.</li>
+            </ul>
           </li>
-          <li class="phase">
-            <h3><span class="phase__weeks">Weeks 5–8</span> Answer</h3>
-            <ol class="weeks">
-              <li><span class="week">Week 5</span> Set up the TV in your office.</li>
-              <li><span class="week">Week 6</span> Farm store weekend summary and Thirty Acres rent tracking.</li>
-              <li><span class="week">Week 7</span> Check the starter questions and fix any wrong answers.</li>
-              <li><span class="week">Week 8</span> Grow the dashboard to 4 or more company panels.</li>
-            </ol>
-            <p class="phase__have"><span>You’ll have</span> the TV running in your office with all your main companies.</p>
+          <li class="plan">
+            <h3>Maintenance</h3>
+            <p class="plan__amount"><span class="money">$750</span> <span class="plan__unit">/ month</span></p>
+            <ul class="ticks">
+              <li>Everything keeps running and stays connected.</li>
+              <li>Security updates and fixes.</li>
+              <li>No new features. Switch back to active development when you’re ready for more.</li>
+            </ul>
           </li>
-          <li class="phase">
-            <h3><span class="phase__weeks">Weeks 9–12</span> Prove</h3>
-            <ol class="weeks">
-              <li><span class="week">Weeks 9–10</span> Use it day to day. I fix and polish.</li>
-              <li><span class="week">Week 11</span> Check your questions against live data.</li>
-              <li><span class="week">Week 12</span> Handoff, a short how-to sheet and what comes next.</li>
-            </ol>
-            <p class="phase__have"><span>You’ll have</span> checked answers you can trust, on your phone and the TV.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 9. Price -->
-    <section class="section section--tint" id="monthly" aria-labelledby="monthly-title">
-      <div class="wrap">
-        <h2 id="monthly-title">One simple monthly price</h2>
-        <div class="price">
-          <p class="price__amount"><span class="money">$3,000</span> <span class="price__unit">/ month</span></p>
-          <p class="price__note">You get a weekly update or short demo, and I keep your connections working.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. What comes next -->
-    <section class="section" id="next-project" aria-labelledby="next-project-title">
-      <div class="wrap">
-        <h2 id="next-project-title">What we can build next</h2>
-        <p class="intro">You mentioned more you’d like this to do. Once your finances are running, you pick what we add next.</p>
-        <ul class="later">
-          <li><strong>Email</strong> The important messages pulled out for you, so you’re not sorting through all of them.</li>
-          <li><strong>Construction pipeline</strong> Homes under construction, spec homes and how long each has been on the market.</li>
-          <li><strong>Equipment and property</strong> Which company owns what, and when it’s due for service.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 11. Client inputs -->
+    <!-- 9. Client inputs -->
     <section class="section" id="from-you" aria-labelledby="from-you-title">
       <div class="wrap">
         <h2 id="from-you-title">What I need from you</h2>
@@ -424,7 +480,7 @@
       </div>
     </section>
 
-    <!-- 12. Next step -->
+    <!-- 10. Next step -->
     <section class="section section--closing" id="next-step" aria-labelledby="next-step-title">
       <div class="wrap">
         <h2 id="next-step-title">Let’s talk.</h2>
