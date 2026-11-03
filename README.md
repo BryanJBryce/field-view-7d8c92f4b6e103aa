@@ -20,8 +20,8 @@ Then open <http://localhost:8000/>.
 
 ## Publishing
 
-To publish, serve the `docs/` folder from `main` with GitHub Pages
-(Settings → Pages → Deploy from a branch → `main` → `/docs`).
+To publish, serve the `docs/` folder from `master` with GitHub Pages
+(Settings → Pages → Deploy from a branch → `master` → `/docs`).
 
 On GitHub Free, Pages requires a public repository, so the page and this
 repository's files are publicly readable. The page carries

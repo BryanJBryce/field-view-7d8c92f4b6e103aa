@@ -312,7 +312,7 @@ Expected default URL: `https://bryanjbryce.github.io/field-view-7d8c92f4b6e103aa
 Execute only during a later authorized deployment. Do not create a repository, commit, push or enable Pages as part of writing this plan.
 
 - [ ] Finish implementation and the local acceptance review below. Resolve any real contact link only from information supplied by Bryan or his PM; the reply-to-message CTA already works without one.
-- [ ] Confirm `gh auth status` is authorized for BryanJBryce. Check `git status`, `git branch --show-current` and `git remote -v` in `/Users/bryan/bloomfield/proposal-site`. This folder already contains an initialized repository on `main` with no commits at planning time. Preserve unexpected existing work/remotes and reconcile them before running creation commands.
+- [ ] Confirm `gh auth status` is authorized for BryanJBryce. Check `git status`, `git branch --show-current` and `git remote -v` in `/Users/bryan/bloomfield/proposal-site`. This folder already contains an initialized repository on `master` with no commits at planning time. Preserve unexpected existing work/remotes and reconcile them before running creation commands.
 - [ ] Confirm the proposed repository name is available; if occupied, choose a fresh opaque suffix rather than touching that repository.
 - [ ] Inspect every file to be committed and the staged diff. Stage explicit files, never the parent folder. Confirm the full history is suitable for a public repo; do not copy private source material, local QA captures or financial records into it.
 - [ ] Create the initial commit, then the public repository and push. The following assumes the initial state described above and the required implementation files are present:
@@ -323,16 +323,16 @@ Execute only during a later authorized deployment. Do not create a repository, c
   git diff --cached
   git commit -m "Add Bloomfield proposal page"
   gh repo create BryanJBryce/field-view-7d8c92f4b6e103aa --public --source=. --remote=origin
-  git push -u origin main
+  git push -u origin master
   ```
 
   `gh repo create --source` associates the existing checkout; keeping the push separate makes the stages explicit. [GitHub CLI repository creation](https://cli.github.com/manual/gh_repo_create).
 
-- [ ] Enable Pages from `main`, `/docs`. CLI option:
+- [ ] Enable Pages from `master`, `/docs`. CLI option:
 
   ```sh
   gh api --method POST repos/BryanJBryce/field-view-7d8c92f4b6e103aa/pages \
-    -f 'source[branch]=main' \
+    -f 'source[branch]=master' \
     -f 'source[path]=/docs'
   gh api repos/BryanJBryce/field-view-7d8c92f4b6e103aa/pages \
     --jq '{status, html_url, source, https_enforced}'
@@ -340,7 +340,7 @@ Execute only during a later authorized deployment. Do not create a repository, c
 
   This requires repository administration / Pages settings permission. If Pages is already enabled, inspect the existing configuration before changing it. Do not repeatedly POST. [Pages API](https://docs.github.com/en/rest/pages/pages).
 
-- [ ] Alternatively enable it in GitHub: repository **Settings → Pages → Build and deployment → Deploy from a branch → main → /docs → Save**. Use either CLI or UI, not both. `.nojekyll` keeps this a plain-file deployment. [Publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+- [ ] Alternatively enable it in GitHub: repository **Settings → Pages → Build and deployment → Deploy from a branch → master → /docs → Save**. Use either CLI or UI, not both. `.nojekyll` keeps this a plain-file deployment. [Publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 - [ ] Verify the Pages deployment reaches successful completion, HTTPS works, the reported URL serves the final page, relative CSS loads, and the robots meta is in the delivered HTML. A configured source or successful push alone is not proof of deployment.
 - [ ] Repeat the mobile, wide-screen, keyboard, CTA and network checks on the actual project URL. Share the verified URL with Bryan for delivery to Craig; do not send it to Craig automatically.
 
