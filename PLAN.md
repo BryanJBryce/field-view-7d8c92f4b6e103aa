@@ -66,7 +66,7 @@ Six linked cards, numbered 1–6, each jumping to its section. Three columns on 
 | --- | --- | --- | --- | --- |
 | 1 | “You wanted every company’s numbers in one place.” | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
 | 2 | “You wanted to see what’s coming in and going out.” | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
-| 3 | “You wanted to ask from anywhere.” | “Answers on your phone” | “Say or type a question. Get a straight answer.” | `#phone` |
+| 3 | “You wanted to ask from anywhere.” | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
 | 4 | “You wanted answers, not reports.” | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
 | 5 | “You wanted one big screen instead of six.” | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
 | 6 | “You wanted to keep adding to it over time.” | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
@@ -108,27 +108,34 @@ Bars are decorative (`aria-hidden`); names and values are text.
 - “**Read-only.** Nothing can move money.”
 - “**Your password stays yours.** I never see or store it.”
 
-### 5. Answers on your phone — `#phone`
+### 5. Answers and TV controls on your phone — `#phone`
 
-**H2:** “Answers on your phone”
+**H2:** “Answers and TV controls on your phone”
 
-Benefit copy beside a CSS phone mockup with a static conversation. No input field or chat controls.
+Benefit copy beside one phone mockup that is both the TV remote and the chat. Same styling family as the TV: cool-gray app background, white cards, navy selected state. Static illustration: chips and composer are not real controls, and there is no real input field.
 
-**Intro:** “Out on the property, in the truck or between meetings, just ask. Say it or type it, and get an answer from your connected numbers without going into the office.”
+**Intro:** “Out on the property, in the truck or between meetings, just ask. The same app runs the office TV, so you can put up whatever you want to talk about before a meeting starts.”
 
 **Points:**
 
-- “**Talk to it like a person.** No reports to run or menus to learn.”
-- “**All your companies at once,** or one at a time.”
-- “**The same numbers** you see on the office TV.”
+- “**Pick what’s on the TV.** All six companies, one company, the farm store or your cash trend, with a tap.”
+- “**Or just ask.** Say or type a question, or tell it what to put on the TV.”
+- “**The same numbers** on your phone and on the wall.”
 
-**Phone mockup** (tag “Example data”; values must match the TV example):
+**Phone screen, top to bottom:**
 
-| You ask | Answer |
+1. Header “Office TV” / “Showing all six companies”, with an “Example data” tag.
+2. A decorative miniature of the TV (navy band over six tiles).
+3. “Show on TV” chips: “All six” (selected), “One company”, “Farm store”, “Cash trend”.
+4. “Ask” conversation (example data, matching the TV):
+
+| You say | Answer |
 | --- | --- |
-| “How much cash is in my connected bank accounts?” | “$216,000 across your six companies. Velocity Builders has the most, at $94,200.” |
-| “How much is past due for Velocity?” | “$12,800 in past-due invoices.” |
-| “How did the farm store do this weekend?” | “$8,420 in sales at Heritage Homestead.” |
+| “Put Velocity Builders on the TV.” | “Done. Velocity Builders is up: $94,200 in the bank and $12,800 past due.” |
+| “How did the farm store do this weekend?” | “$8,420 in sales, up from $8,050 last weekend.” |
+| “Show all six again.” | “All six companies are back on the TV.” |
+
+5. A decorative composer bar, “Ask, or tell the TV what to show”, with a microphone button.
 
 ### 6. Questions — `#questions`
 
@@ -287,7 +294,7 @@ Connect that shared source to the assistant once. Do not draw one bank account p
 
 **Center node:** “Your assistant”
 
-**Output nodes:** “Your phone” / “Type or speak a question” and “Your office TV” / “See the same numbers”
+**Output nodes:** “Your phone” / “Ask, or change the TV” and “Your office TV” / “See the same numbers”
 
 **Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group’s company records, and up to six bank accounts feed one assistant. You get the answers on your phone and the office TV.”
 

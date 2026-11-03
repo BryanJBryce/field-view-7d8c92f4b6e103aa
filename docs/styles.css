@@ -516,7 +516,8 @@ a:hover { text-decoration-thickness: 0.14em; }
 @media (min-width: 56em) {
   @container wrap (min-width: 44rem) {
     .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
-    .split--phone { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .split--phone { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+    .split--phone .points-wrap { padding-top: 3rem; }
   }
 }
 
@@ -701,6 +702,169 @@ a:hover { text-decoration-thickness: 0.14em; }
   margin-bottom: 0.5rem;
 }
 .chat__answer .money { font-weight: 800; }
+
+/* Phone as TV remote + chat (decorative app chrome, all text real) */
+
+.remote { width: min(100%, 23rem); }
+
+.remote__body {
+  position: relative;
+  padding: 2.4rem 1.1rem 1.1rem;
+  gap: 0;
+  background: #f4f7fb;
+}
+
+.remote__notch {
+  position: absolute;
+  top: 0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: var(--bezel);
+  transform: translateX(-50%);
+}
+
+.remote__body p { margin: 0; }
+
+.remote__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.remote__title { font-weight: 800; font-size: 1.25em; line-height: 1.15; }
+.remote__status { color: var(--muted); font-size: 0.85em; }
+.remote__body .remote__tag { margin: 0.15rem 0 0; font-size: 0.75em; white-space: nowrap; }
+
+/* Miniature of the TV screen: navy band over six white tiles */
+.remote__preview {
+  display: grid;
+  gap: 4%;
+  aspect-ratio: 16 / 9;
+  padding: 4.5%;
+  border: 0.4rem solid var(--bezel);
+  border-radius: 10px;
+  background: #eaf0f6;
+  grid-template-rows: 1fr 2.6fr;
+  box-shadow: 0 6px 16px rgb(28 55 90 / 0.18);
+}
+.remote__band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8%;
+  padding-inline: 5%;
+  border-radius: 4px;
+  background: #1c375a;
+}
+.remote__band span:first-child { width: 22%; height: 34%; border-radius: 2px; background: #fff; }
+.remote__band span:last-child {
+  flex: 1;
+  height: 40%;
+  border-bottom: 2px solid #8cc4f5;
+  border-image: linear-gradient(to right, transparent 0, #8cc4f5 0) 1;
+  transform: skewY(-4deg);
+}
+.remote__tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5%;
+}
+.remote__tiles span {
+  border-radius: 3px;
+  background:
+    linear-gradient(#1b75ba, #1b75ba) 12% 78% / 60% 2px no-repeat,
+    linear-gradient(#1c375a, #1c375a) 12% 22% / 42% 18% no-repeat,
+    #fff;
+  border: 1px solid #d3dee9;
+}
+
+.remote__label {
+  margin-top: 1rem !important;
+  margin-bottom: 0.45rem !important;
+  color: var(--muted);
+  font-size: 0.75em;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.remote__label--rule { padding-top: 0.85rem; border-top: 1px solid var(--rule); }
+
+.remote__chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.remote__chips li {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.8em;
+  font-weight: 650;
+}
+.remote__chips .is-on {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: #fff;
+}
+
+.remote__chat { gap: 0.45rem; font-size: 0.9em; }
+.remote__chat .chat__answer { background: #fff; border: 1px solid var(--rule); margin-bottom: 0.3rem; }
+
+.remote__composer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.8em;
+}
+/* Microphone glyph in a filled circle */
+.remote__mic {
+  position: relative;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.remote__mic::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.45rem;
+  width: 0.45rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+.remote__mic::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.85rem;
+  width: 0.75rem;
+  height: 0.5rem;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-radius: 0 0 999px 999px;
+  transform: translateX(-50%);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 /* 6. Questions ----------------------------------------------------- */
 
@@ -1211,7 +1375,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
   .bar__fill { background: CanvasText; forced-color-adjust: none; }
-  .bar__track, .phone__body, .qgroup, .plan { border: 1px solid CanvasText; }
+  .bar__track, .phone__body, .qgroup, .plan, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band, .reassure { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }

@@ -74,7 +74,7 @@
               <span class="overview__num" aria-hidden="true">3</span>
               <p class="overview__want">You wanted to ask from anywhere.</p>
               <h3>Answers on your phone</h3>
-              <p>Say or type a question. Get a straight answer.</p>
+              <p>Ask a question, or change what’s on the TV.</p>
             </a>
           </li>
           <li>
@@ -158,7 +158,7 @@
               <ul class="outputs">
                 <li class="output">
                   <span class="output__name">Your phone</span>
-                  <span class="output__note">Type or speak a question</span>
+                  <span class="output__note">Ask, or change the TV</span>
                 </li>
                 <li class="output">
                   <span class="output__name">Your office TV</span>
@@ -228,31 +228,61 @@
       </div>
     </section>
 
-    <!-- 5. Answers on your phone -->
+    <!-- 5. Answers and TV controls on your phone -->
     <section class="section" id="phone" aria-labelledby="phone-title">
       <div class="wrap">
-        <h2 id="phone-title">Answers on your phone</h2>
+        <h2 id="phone-title">Answers and TV controls on your phone</h2>
         <div class="split split--phone">
           <div class="points-wrap">
-            <p class="intro">Out on the property, in the truck or between meetings, just ask. Say it or type it, and get an answer from your connected numbers without going into the office.</p>
+            <p class="intro">Out on the property, in the truck or between meetings, just ask. The same app runs the office TV, so you can put up whatever you want to talk about before a meeting starts.</p>
             <ul class="points">
-              <li><strong>Talk to it like a person.</strong> No reports to run or menus to learn.</li>
-              <li><strong>All your companies at once,</strong> or one at a time.</li>
-              <li><strong>The same numbers</strong> you see on the office TV.</li>
+              <li><strong>Pick what’s on the TV.</strong> All six companies, one company, the farm store or your cash trend, with a tap.</li>
+              <li><strong>Or just ask.</strong> Say or type a question, or tell it what to put on the TV.</li>
+              <li><strong>The same numbers</strong> on your phone and on the wall.</li>
             </ul>
           </div>
 
-          <figure class="phone" aria-label="Example conversation on your phone, using example data">
-            <div class="phone__body">
-              <p class="tag tag--inline">Example data</p>
-              <ol class="chat">
-                <li class="chat__ask">How much cash is in my connected bank accounts?</li>
-                <li class="chat__answer"><span class="money">$216,000</span> across your six companies. Velocity Builders has the most, at <span class="money">$94,200</span>.</li>
-                <li class="chat__ask">How much is past due for Velocity?</li>
-                <li class="chat__answer"><span class="money">$12,800</span> in past-due invoices.</li>
+          <figure class="phone remote" aria-label="Example phone screen, using example data: controls for the office TV and a conversation with the assistant">
+            <div class="phone__body remote__body">
+              <span class="remote__notch" aria-hidden="true"></span>
+
+              <div class="remote__head">
+                <div>
+                  <p class="remote__title">Office TV</p>
+                  <p class="remote__status">Showing all six companies</p>
+                </div>
+                <p class="tag tag--inline remote__tag">Example data</p>
+              </div>
+
+              <div class="remote__preview" aria-hidden="true">
+                <span class="remote__band"><span></span><span></span></span>
+                <span class="remote__tiles">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </div>
+
+              <p class="remote__label">Show on TV</p>
+              <ul class="remote__chips">
+                <li class="is-on"><span class="visually-hidden">Selected: </span>All six</li>
+                <li>One company</li>
+                <li>Farm store</li>
+                <li>Cash trend</li>
+              </ul>
+
+              <p class="remote__label remote__label--rule">Ask</p>
+              <ol class="chat remote__chat">
+                <li class="chat__ask">Put Velocity Builders on the TV.</li>
+                <li class="chat__answer">Done. Velocity Builders is up: <span class="money">$94,200</span> in the bank and <span class="money">$12,800</span> past due.</li>
                 <li class="chat__ask">How did the farm store do this weekend?</li>
-                <li class="chat__answer"><span class="money">$8,420</span> in sales at Heritage Homestead.</li>
+                <li class="chat__answer"><span class="money">$8,420</span> in sales, up from <span class="money">$8,050</span> last weekend.</li>
+                <li class="chat__ask">Show all six again.</li>
+                <li class="chat__answer">All six companies are back on the TV.</li>
               </ol>
+
+              <div class="remote__composer" aria-hidden="true">
+                <span>Ask, or tell the TV what to show</span>
+                <span class="remote__mic"></span>
+              </div>
             </div>
           </figure>
         </div>
