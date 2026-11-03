@@ -56,20 +56,20 @@ Pair the copy with a small phone and TV composition using the example cash figur
 
 ### 2. Overview — `#what-you-get`
 
-**H2:** “What you asked for, and what you get”
+**H2:** “What you get”
 
 **Intro:** “We start where you said to start: your finances, across all six companies. More can come later.”
 
-Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. Each card has a small accent “You wanted” line above the H3; H3s end with a decorative arrow.
+Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
 
-| # | You wanted | H3 | Line | Links to |
-| --- | --- | --- | --- | --- |
-| 1 | “You wanted every company’s numbers in one place.” | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
-| 2 | “You wanted to see what’s coming in and going out.” | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
-| 3 | “You wanted to ask from anywhere.” | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
-| 4 | “You wanted answers, not reports.” | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
-| 5 | “You wanted one big screen instead of six.” | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
-| 6 | “You wanted to keep adding to it over time.” | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
+| # | H3 | Line | Links to |
+| --- | --- | --- | --- |
+| 1 | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
+| 2 | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
+| 3 | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
+| 4 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
+| 5 | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
+| 6 | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
 
 ### 3. Books connected — `#one-place`
 
