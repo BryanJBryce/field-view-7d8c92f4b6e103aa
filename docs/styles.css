@@ -1267,48 +1267,80 @@ a:hover { text-decoration-thickness: 0.14em; }
 .ftile__sub { color: var(--tv-ink-2); font-weight: 500; font-size: 0.9em; }
 .ftile__sub .money { color: var(--tv-ink); font-weight: 650; }
 
-.ranks { display: grid; gap: 0.55em; }
-.ftile--rank .ranks { flex: 1; align-content: space-evenly; }
-.rank {
+/* Ranked horizontal bar chart on a shared $0–$1,750 scale. The list is
+   one grid; rows use display: contents so names, bars and quantities
+   line up in columns, and one gridline layer spans every bar row. */
+.hbars {
+  flex: 1;
+  position: relative;
   display: grid;
-  grid-template-columns: 1.6em minmax(0, 1fr) auto;
-  grid-template-rows: auto auto;
-  column-gap: 0.5em;
-  row-gap: 0.25em;
-  align-items: baseline;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  grid-template-rows: repeat(5, minmax(1.9em, 1fr)) auto;
+  align-items: center;
+  column-gap: 0.9em;
+  row-gap: 0.45em;
 }
-.rank__n {
-  grid-row: 1 / 3;
-  align-self: center;
-  display: grid;
-  place-items: center;
-  width: 1.6em;
-  height: 1.6em;
-  border-radius: 50%;
-  background: var(--tv-canvas);
-  color: var(--tv-ink);
-  font-size: 0.8em;
-  font-weight: 700;
+.hbar { display: contents; }
+.hbar:nth-child(2) > * { grid-row: 1; }
+.hbar:nth-child(3) > * { grid-row: 2; }
+.hbar:nth-child(4) > * { grid-row: 3; }
+.hbar:nth-child(5) > * { grid-row: 4; }
+.hbar:nth-child(6) > * { grid-row: 5; }
+
+.hbars__grid {
+  grid-column: 2;
+  grid-row: 1 / 6;
+  align-self: stretch;
+  border-left: 1px solid var(--tv-hair);
+  background: linear-gradient(to right, var(--tv-hair) 1px, transparent 1px) 0 0 / 28.571% 100% repeat-x;
 }
-.rank:first-child .rank__n { background: var(--tv-data); color: #fff; }
-.rank__name { font-weight: 600; }
-.rank__qty { color: var(--tv-ink-2); font-weight: 400; font-size: 0.85em; margin-left: 0.25em; white-space: nowrap; }
-.rank__value { font-weight: 700; }
-.rank__bar {
-  grid-column: 2 / 4;
-  height: 0.5em;
-  border-radius: 999px;
-  background: var(--tv-canvas);
-  overflow: hidden;
+
+.hbar__name { grid-column: 1; font-weight: 600; white-space: nowrap; }
+.hbar__qty { grid-column: 3; color: var(--tv-ink-2); font-size: 0.8em; white-space: nowrap; text-align: right; }
+
+.hbar__track {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 1.55em;
 }
-.rank__bar span {
-  display: block;
+.hbar__fill {
   width: var(--w);
   height: 100%;
-  border-radius: 999px;
+  border-radius: 0 3px 3px 0;
   background: var(--tv-data-soft);
 }
-.rank:first-child .rank__bar span { background: var(--tv-data); }
+.hbar__value { margin-left: 0.5em; font-weight: 700; white-space: nowrap; }
+
+/* The leader: brightest bar, value sits inside its end */
+.hbar--lead .hbar__fill { background: var(--tv-data); }
+.hbar--lead .hbar__value {
+  position: absolute;
+  right: calc(100% - var(--w) + 0.5em);
+  margin: 0;
+}
+.hbar--lead .hbar__name { color: var(--tv-ink); }
+
+.hbars__axis {
+  grid-column: 2;
+  grid-row: 6;
+  position: relative;
+  height: 1.2em;
+  align-self: start;
+  color: var(--tv-ink-2);
+  font-size: 0.7em;
+}
+.hbars__axis span { position: absolute; left: var(--x); transform: translateX(-50%); }
+.hbars__axis span:first-child { transform: none; }
+
+/* Narrow screens: drop the quantity column so the bars keep their length */
+@container tv (max-width: 30em) {
+  .hbars { grid-template-columns: minmax(0, 6.5em) minmax(0, 1fr); column-gap: 0.6em; }
+  .hbar__name { white-space: normal; font-size: 0.9em; line-height: 1.15; }
+  .hbar__qty { display: none; }
+}
 
 .low { display: grid; }
 .low li {
@@ -1451,14 +1483,14 @@ a:hover { text-decoration-thickness: 0.14em; }
 .rent__ticks i { background: var(--cc-cyan); }
 .rent__ticks i::after { border-color: var(--cc-bg); }
 
-.rank__n { background: rgb(120 180 255 / 0.12); color: var(--cc-ink); font-family: var(--cc-mono); }
-.rank:first-child .rank__n { background: var(--cc-cyan); color: var(--cc-bg); }
-.rank__bar { background: rgb(120 180 255 / 0.1); }
-.rank__bar span { background: linear-gradient(to right, rgb(27 117 186 / 0.6), rgb(76 195 255 / 0.55)); }
-.rank:first-child .rank__bar span { background: linear-gradient(to right, #1b75ba, var(--cc-cyan)); box-shadow: 0 0 8px var(--cc-glow); }
 .ftile__sub { font-family: var(--cc-mono); font-size: 0.78em; }
 .ftile__sub .money { color: var(--cc-cyan); }
 .low li span:last-child { font-family: var(--cc-mono); font-size: 0.85em; color: var(--cc-cyan); }
+
+.hbar__fill { background: linear-gradient(to right, rgb(27 117 186 / 0.75), rgb(76 195 255 / 0.55)); }
+.hbar--lead .hbar__fill { background: linear-gradient(to right, #1b75ba, var(--cc-cyan)); box-shadow: 0 0 12px var(--cc-glow); }
+.hbar--lead .hbar__value { color: var(--cc-bg); }
+.hbar__qty, .hbars__axis { font-family: var(--cc-mono); }
 
 /* Assistant briefing along the bottom of a TV */
 .brief {
@@ -1705,7 +1737,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
-  .phone__body, .qgroup, .plan, .step, .docs li, .ftile, .rank__bar, .brief, .tile, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
+  .phone__body, .qgroup, .plan, .step, .docs li, .ftile, .brief, .tile, .hbar__fill, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }

@@ -173,7 +173,7 @@ A phone (left) beside a second TV (right) on screens 80em and wider; stacked pho
 
 - **Phone:** “Office TV” / “Showing farm store top sellers”, “Farm store” chip selected. You ask: “Show the farm store’s top sellers from this weekend on the TV.” Answer: “Done. Whole milk led with $1,640, then eggs at $1,260. Butter and eggs are running low.”
 - **TV band:** “Heritage Homestead farm store, this weekend” $8,420, “Up $370 from last weekend”, with “Example data, not your accounts.”
-- **Top sellers this weekend** (Top 5: $4,686), ranked bars scaled to the leader:
+- **Top sellers this weekend** (Top 5: $4,686): a ranked horizontal bar chart, not a pie. Thick bars on a shared $0–$1,750 scale with gridlines and a $0 / $500 / $1,000 / $1,500 axis; names in a left column, the dollar value at each bar’s end (inside the bar for the leader), units sold in a right column (hidden on narrow screens). The leader is the brightest bar.
 
 | # | Item | Sold | Sales |
 | --- | --- | --- | --- |
