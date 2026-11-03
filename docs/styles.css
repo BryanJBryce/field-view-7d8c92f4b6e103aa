@@ -315,6 +315,57 @@ a:hover { text-decoration-thickness: 0.14em; }
   }
 }
 
+/* 2b. Your own AI agent (command-center band) --------------------- */
+
+.agent {
+  background: var(--cc-screen);
+  color: var(--cc-ink);
+  border-top: 0;
+}
+.agent + .section { border-top-color: transparent; }
+.agent h2 { color: #fff; margin-bottom: 0; }
+.agent .intro { color: var(--cc-ink-2); margin-top: 1.25rem; }
+
+.agent__head { display: flex; align-items: center; gap: 1.25rem; }
+.agent__orb {
+  flex-shrink: 0;
+  width: clamp(3.25rem, 2.5rem + 3vw, 4.75rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #d6f4ff 0, var(--cc-cyan) 34%, #1b75ba 68%, #0b2a4d 100%);
+  box-shadow: 0 0 0 0.45rem rgb(76 195 255 / 0.12), 0 0 0 0.95rem rgb(76 195 255 / 0.06), 0 0 2.5rem var(--cc-glow);
+}
+.agent__kicker {
+  margin: 0 0 0.35rem;
+  color: var(--cc-cyan);
+  font-family: var(--cc-mono);
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.agent__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+.agent-card {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--cc-hair);
+  border-radius: 8px;
+  background: var(--cc-corners), var(--cc-panel);
+  font-size: 1rem;
+}
+.agent-card h3 { color: #fff; font-size: 1.15em; margin-bottom: 0.4rem; }
+.agent-card p { color: var(--cc-ink-2); }
+
+@media (min-width: 40em) {
+  .agent__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64em) {
+  .agent__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+}
+
 /* 3. Books connected (diagram) ------------------------------------ */
 
 .diagram { margin: 0 0 2rem; }

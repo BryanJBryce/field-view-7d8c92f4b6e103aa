@@ -44,9 +44,9 @@ Use this order. Anchor links are optional navigation aids, not separate pages. H
 
 **Small identification:** “Prepared for Craig Bloomfield”
 
-**H1:** “Know how every company is doing, without being there.”
+**H1:** “Your own AI agent for every company you run.”
 
-**Body:** “You want to spend your time leading your companies, not checking up on them. I’ll connect the systems you already use so the numbers come to you: on your phone wherever you are, and on the big TV in your office.”
+**Body:** “It knows your numbers, answers from your phone and runs the big TV in your office, so you know how every company is doing without being there. I build it around the systems you already use.”
 
 **Primary link:** “See what you get” → `#what-you-get`
 
@@ -58,21 +58,43 @@ Pair the copy with a small phone and TV composition using the example cash figur
 
 **H2:** “What you get”
 
-Five linked cards, numbered 1–5, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
+Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
 
 | # | H3 | Line | Links to |
 | --- | --- | --- | --- |
-| 1 | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
-| 2 | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
-| 3 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
-| 4 | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
-| 5 | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
+| 1 | “Your own AI agent” | “Built for your six companies. Private, read-only and yours to own.” | `#agent` |
+| 2 | “Your books, connected” | “QuickBooks and Clover feed your AI agent. No logging in to each system.” | `#one-place` |
+| 3 | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
+| 4 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
+| 5 | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
+| 6 | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
+
+### 2b. Your own AI agent — `#agent`
+
+The page’s main selling point. Name the product plainly as a custom AI agent, without hype.
+
+A full-width dark section in the command-center theme (same grid, glow, panels and corner brackets as the TVs). A large glowing orb beside a mono kicker “Custom built for Bloomfield” and the **H2:** “Your own custom AI agent”.
+
+**Intro:** “Not a chatbot you have to explain your business to every time. I build an AI agent that is connected to your books, knows how your companies fit together, and works for you on your phone and on the TV in your office.”
+
+Six cards (3×2 on desktop, 2 columns on tablets, stacked on phones):
+
+| H3 | Text |
+| --- | --- |
+| “Built around your companies” | “Set up for your six companies, the systems they run on and the way you talk about them. You don’t have to explain your business to it.” |
+| “Talks like a person” | “Ask out loud or by text, from anywhere. It answers with your numbers and puts what you ask for up on the TV.” |
+| “Speaks up” | “It doesn’t only wait to be asked. It puts a short briefing on your TV about what changed and what needs your attention.” |
+| “Private and read-only” | “It can read your books and bank balances, but it can’t move money. Your data is never used to train public AI models.” |
+| “Yours to own” | “You own the custom work I build for you. It isn’t a rented app you lose access to.” |
+| “Gets better every month” | “Text me what you want next. New questions, new views and new connections go in the queue and get built.” |
+
+“Private” and “Yours to own” match the MSA (no AI training on identifiable Company data; Company owns paid Work Product). Use “AI agent” or “your agent” everywhere on the page instead of “assistant”.
 
 ### 3. Books connected — `#one-place`
 
 **H2:** “Your books, connected”
 
-**Intro:** “Right now each company’s numbers live in a different place. You keep using QuickBooks, Clover and your banks the way you do today. I connect them to one assistant, so the answers are in one spot.”
+**Intro:** “Right now each company’s numbers live in a different place. You keep using QuickBooks, Clover and your banks the way you do today. I connect them to your AI agent, so the answers are in one spot.”
 
 Use the diagram specification later in this plan.
 
@@ -155,7 +177,7 @@ Invented example series (month-end cash Jun, Jul, Aug, Sep, Oct, now). Each line
 - Velocity Builders sales May to Oct: 96,400 / 108,700 / 102,300 / 117,900 / 112,600 / 121,800
 - Farm store sales, last 8 weekends: 6,180 / 7,040 / 6,620 / 7,350 / 8,910 / 7,780 / 8,050 / 8,420
 
-**Assistant briefing** along the bottom of the TV, with the orb: “Assistant: Cash is up $26,200 since June. Velocity Builders has $12,800 past due, and both Thirty Acres tenants have paid.”
+**Assistant briefing** along the bottom of the TV, with the orb: “Your agent: Cash is up $26,200 since June. Velocity Builders has $12,800 past due, and both Thirty Acres tenants have paid.”
 
 Sales and receivables are never added into cash. Every chart is `aria-hidden` and has a hidden text sentence listing its values. No fake timestamp, live or connected status, or TV brand names.
 
@@ -213,8 +235,8 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 **H3:** “Both options are all inclusive” — “No separate bills for the pieces it runs on.”
 
 - **“Computer hardware”** — “The computer that runs your office TV, plus the KVM.”
-- **“Cloud servers”** — “Private cloud networks (VPCs) and the compute your assistant runs on.”
-- **“AI usage”** — “Up to $200 a month for the assistant.”
+- **“Cloud servers”** — “Private cloud networks (VPCs) and the compute your agent runs on.”
+- **“AI usage”** — “Up to $200 a month for your agent.”
 - **“On-site setup”** — “Up to 5 hours of on-site work, like setting up your TV. After that it’s $200 an hour, and only with your OK.”
 
 Four items: one column on phones, two on tablets, four on wide screens.
@@ -307,11 +329,11 @@ Separate shared source beneath the company group:
 
 Connect that shared source to the assistant once. Do not draw one bank account per company or name specific banks.
 
-**Center node:** “Your assistant”
+**Center node:** “Your AI agent”
 
 **Output nodes:** “Your phone” / “Ask, or change the TV” and “Your office TV” / “See the same numbers”
 
-**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group’s company records, and up to six bank accounts feed one assistant. You get the answers on your phone and the office TV.”
+**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group’s company records, and up to six bank accounts feed your AI agent. You get the answers on your phone and the office TV.”
 
 On desktop, use sources at left, assistant in the middle, phone and TV at right. Stack the company nodes in one column within the source area. Connectors point toward the assistant; arrows then point outward to phone and TV. They indicate the proposed flow, not current operational status.
 
