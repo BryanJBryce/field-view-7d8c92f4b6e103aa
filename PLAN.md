@@ -80,7 +80,7 @@ Use the diagram specification later in this plan.
 
 **H2:** “Answers and TV controls on your phone”
 
-Benefit copy beside one phone mockup that is both the TV remote and the chat. Same styling family as the TV: cool-gray app background, white cards, navy selected state. Static illustration: chips and composer are not real controls, and there is no real input field.
+Benefit copy beside one phone mockup that is both the TV remote and the chat. Same command-center styling as the TV: dark screen, translucent cards, cyan selected chip, the assistant orb beside “Office TV”, and an orb-style microphone button. Static illustration: chips and composer are not real controls, and there is no real input field.
 
 **Intro:** “Out on the property, in the truck or between meetings, just ask. The same app runs the office TV, so you can put up whatever you want to talk about before a meeting starts.”
 
@@ -128,7 +128,7 @@ The transfer question asks about recorded activity; it must never look like a co
 
 **Visible label, inside the mock TV:** “Example data, not your accounts”
 
-Design: a premium financial-services product look in the spirit of American Express’s app UI (no Amex name, logo, card imagery or marks). A navy summary band sits over white tiles on a cool-gray screen, inside a restrained dark bezel with a stand. Live HTML text with inline SVG charts, no JS or chart library. One blue data hue family: past periods #8FB8E3, latest period #1B75BA. No red or green; changes are written out in words. At ≥64em the screen is 16:9 with a 3×2 tile grid; two per row on tablets; stacked on phones.
+Design: a restrained “business command center” look, with a little of an AI assistant’s presence but nothing theatrical. Dark screen (#050D19) with a faint grid and soft blue glow; translucent panels with thin hairlines and small cyan corner brackets; one cyan-blue data colour (#4CC3FF, latest period brightest, earlier periods dimmer) with a light glow on lines; monospace uppercase meta labels; large white numbers. A small glowing orb stands for the assistant. Live HTML text with inline SVG charts, no JS or chart library, no animation, and no live or connected indicators. No red or green; changes are written out in words. At ≥64em the screen is 16:9 with a 3×2 tile grid; two per row on tablets; stacked on phones. The same theme applies to both phones and the hero mockup.
 
 **Summary band:** “Cash in connected bank accounts” $216,000, “Up $26,200 since June, across all six companies”, with a combined cash line chart (Jun to Now).
 
@@ -154,6 +154,8 @@ Invented example series (month-end cash Jun, Jul, Aug, Sep, Oct, now). Each line
 - Combined 189,800 / 199,200 / 207,300 / 206,400 / 212,000 / 216,000
 - Velocity Builders sales May to Oct: 96,400 / 108,700 / 102,300 / 117,900 / 112,600 / 121,800
 - Farm store sales, last 8 weekends: 6,180 / 7,040 / 6,620 / 7,350 / 8,910 / 7,780 / 8,050 / 8,420
+
+**Assistant briefing** along the bottom of the TV, with the orb: “Assistant: Cash is up $26,200 since June. Velocity Builders has $12,800 past due, and both Thirty Acres tenants have paid.”
 
 Sales and receivables are never added into cash. Every chart is `aria-hidden` and has a hidden text sentence listing its values. No fake timestamp, live or connected status, or TV brand names.
 
@@ -183,6 +185,7 @@ A phone (left) beside a second TV (right) on screens 80em and wider; stacked pho
 
 - **Running low:** Butter, 6 lb left · Eggs, 12 dozen left · Whole milk, 9 gallons left.
 - **Sales, last 8 weekends:** the same series as the main TV, ending at $8,420 (last weekend $8,050).
+- **Assistant briefing:** “Milk and eggs led again. Butter is down to 6 lb, so it’s worth restocking before Saturday.”
 
 ### 7. Monthly options — `#monthly`
 
