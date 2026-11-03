@@ -93,7 +93,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   border-radius: 4px;
 }
 
-.money, .mini-tv__value, .mini-phone__answer, .balances__total, .bar__value {
+.money, .mini-tv__value, .mini-phone__answer {
   font-variant-numeric: tabular-nums lining-nums;
   white-space: nowrap; /* currency amounts never break across lines */
 }
@@ -601,53 +601,6 @@ a:hover { text-decoration-thickness: 0.14em; }
   @container wrap (min-width: 56rem) {
     .overview { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
   }
-}
-
-/* 4. Bank balances ------------------------------------------------- */
-
-.balances {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: min(1.75rem, 6vw);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: 0 10px 28px rgb(28 55 90 / 0.14);
-}
-
-.balances p { margin: 0; }
-.balances__label { color: var(--muted); font-weight: 600; }
-.balances .balances__total {
-  font-size: min(clamp(2.6rem, 1.6rem + 4vw, 4.25rem), 16vw);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-
-.bars { display: grid; gap: 1rem; }
-
-.bar {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.35rem 1rem;
-  align-items: baseline;
-}
-.bar__name { font-weight: 650; }
-.bar__value { font-weight: 800; }
-.bar__track {
-  grid-column: 1 / -1;
-  height: 0.75rem;
-  border-radius: 999px;
-  background: var(--surface-alt);
-  overflow: hidden;
-}
-.bar__fill {
-  display: block;
-  width: var(--share);
-  height: 100%;
-  border-radius: 999px;
-  background: var(--primary);
 }
 
 /* 5. Answers on your phone ----------------------------------------- */
@@ -1359,8 +1312,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
-  .bar__fill { background: CanvasText; forced-color-adjust: none; }
-  .bar__track, .phone__body, .qgroup, .plan, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
+  .phone__body, .qgroup, .plan, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }

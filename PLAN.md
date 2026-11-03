@@ -14,7 +14,7 @@ Use only the supplied client-facing scope and this brief. Do not consult additio
 
 Bryan's direction: “Focus on what he gets, not on contractual edge cases.” This overrides the earlier requirement to keep limits explicit on the page.
 
-- Lead with what Craig sees and uses: connected books, bank balances together, answers on his phone, the office TV dashboard, sample questions and the monthly options. Each gets its own section with a visual.
+- Lead with what Craig sees and uses: connected books, answers on his phone, the office TV dashboard, sample questions and the monthly options. Each gets its own section with a visual.
 - Every heading names something Craig gets. The only exceptions are “What I need from you” and “Let’s talk.”
 - Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term and cancellation; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
 - Pricing shows two plain options, active development and maintenance, with what each includes. No term, notice or allowance detail.
@@ -60,16 +60,15 @@ Pair the copy with a small phone and TV composition using the example cash figur
 
 **Intro:** “We start where you said to start: your finances, across all six companies. More can come later.”
 
-Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
+Five linked cards, numbered 1–5, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
 
 | # | H3 | Line | Links to |
 | --- | --- | --- | --- |
 | 1 | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
-| 2 | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
-| 3 | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
-| 4 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
-| 5 | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
-| 6 | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
+| 2 | “Answers on your phone” | “Ask a question, or change what’s on the TV.” | `#phone` |
+| 3 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
+| 4 | “Your office TV dashboard” | “All six companies on one TV, with charts.” | `#tv-example` |
+| 5 | “Your monthly options” | “Active building when you want new things. Upkeep when you don’t.” | `#monthly` |
 
 ### 3. Books connected — `#one-place`
 
@@ -79,34 +78,7 @@ Six linked cards, numbered 1–6, each jumping to its section. Three columns on 
 
 Use the diagram specification later in this plan.
 
-### 4. Bank balances — `#banks`
-
-**H2:** “Your bank balances together”
-
-Two columns on wide screens: a white card with the example balances, and the benefit copy beside it.
-
-**Card:** “Example data” tag, label “Cash in connected bank accounts”, total “$216,000”, then one horizontal bar per company, sorted largest first, each scaled to the largest balance:
-
-| Company | Value |
-| --- | --- |
-| Velocity Builders | $94,200 |
-| Tiago LLC | $38,100 |
-| Heritage Homestead LLC | $29,400 |
-| Dirt Kings | $24,700 |
-| Thirty Acres LLC | $18,600 |
-| Bloomfield Property Group | $11,000 |
-
-Bars are decorative (`aria-hidden`); names and values are text.
-
-**Intro:** “One number for all your cash, the balance for each company underneath it, and what came in and went out. No logging in to each bank to find out.”
-
-**Points (tick icons):**
-
-- “**All six companies** in one view, up to 6 bank accounts.”
-- “**Read-only.** Nothing can move money.”
-- “**Your password stays yours.** I never see or store it.”
-
-### 5. Answers and TV controls on your phone — `#phone`
+### 4. Answers and TV controls on your phone — `#phone`
 
 **H2:** “Answers and TV controls on your phone”
 
@@ -135,7 +107,7 @@ Benefit copy beside one phone mockup that is both the TV remote and the chat. Sa
 
 5. A decorative composer bar, “Ask, or tell the TV what to show”, with a microphone button.
 
-### 6. Questions — `#questions`
+### 5. Questions — `#questions`
 
 **H2:** “Questions you can ask”
 
@@ -150,7 +122,7 @@ Four grouped cards (two columns on wide screens), each question with a small dec
 
 The transfer question asks about recorded activity; it must never look like a command to move money.
 
-### 7. TV example — `#tv-example`
+### 6. TV example — `#tv-example`
 
 **H2:** “Your office TV dashboard”
 
@@ -193,7 +165,7 @@ Sales and receivables are never added into cash. Every chart is `aria-hidden` an
 - “**All six companies at once.** Each one gets its own spot, with its cash and a chart.”
 - “**You choose what’s on it.** Cash, money owed, sales, whatever you want your team to see.”
 
-### 8. Monthly options — `#monthly`
+### 7. Monthly options — `#monthly`
 
 **H2:** “Your monthly options”
 
@@ -216,7 +188,7 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 
 Term, notice, on-site work and usage allowance belong in the agreement.
 
-### 9. Client inputs — `#from-you`
+### 8. Client inputs — `#from-you`
 
 **H2:** “What I need from you”
 
@@ -230,7 +202,7 @@ Simple list with small decorative check-outline icons. No checkboxes, no conditi
 - “The Thirty Acres rent sheet or account.”
 - “Your questions and what you want on the TV. Notes or a voice memo are fine.”
 
-### 10. Next step — `#next-step`
+### 9. Next step — `#next-step`
 
 **H2:** “Let’s talk.”
 
@@ -374,11 +346,11 @@ Review the implementation against this checklist before any publication. Repeat 
 
 ### Content and scope
 
-- [ ] All 10 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
+- [ ] All 9 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
 - [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
 - [ ] Monthly options show active development at $3,000 / month and maintenance at $750 / month, with what each includes.
 - [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group company records, and up to 6 read-only bank accounts. No money movement is implied.
-- [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, six cash balances total $216,000, and the phone answers match the TV.
+- [ ] Hero, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, six cash balances total $216,000, and the phone answers match the TV.
 - [ ] Bryan buys and sets up the computer for the office TV. All six companies show at once, with charts. No panel-count language and no TV brand names.
 - [ ] All ten questions are visible in four groups.
 - [ ] Copy echoes Craig’s kickoff goals in plain words: no direct quotes, no prior software vendor names, nothing private from the call. Clover is connected, not replaced.
