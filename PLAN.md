@@ -163,6 +163,27 @@ Sales and receivables are never added into cash. Every chart is `aria-hidden` an
 - “**All six companies at once.** Each one gets its own spot, with its cash and a chart.”
 - “**You choose what’s on it.** Cash, money owed, sales, whatever you want your team to see.”
 
+**Second example, below the points: “Ask, and the TV changes”** (H3)
+
+**Intro:** “Before a meeting or on a Monday morning, ask your phone for what you want to see. The TV switches to it.”
+
+A phone (left) beside a second TV (right) on screens 80em and wider; stacked phone-then-TV below that, so the TV keeps its 16:9 shape. Same styling as the main TV and the phone section. Static illustration.
+
+- **Phone:** “Office TV” / “Showing farm store top sellers”, “Farm store” chip selected. You ask: “Show the farm store’s top sellers from this weekend on the TV.” Answer: “Done. Whole milk led with $1,640, then eggs at $1,260. Butter and eggs are running low.”
+- **TV band:** “Heritage Homestead farm store, this weekend” $8,420, “Up $370 from last weekend”, with “Example data, not your accounts.”
+- **Top sellers this weekend** (Top 5: $4,686), ranked bars scaled to the leader:
+
+| # | Item | Sold | Sales |
+| --- | --- | --- | --- |
+| 1 | Whole milk, gallon | 164 sold | $1,640 |
+| 2 | Eggs, dozen | 210 sold | $1,260 |
+| 3 | Tomatoes, lb | 180 lb | $630 |
+| 4 | Butter, lb | 58 sold | $580 |
+| 5 | Sweet corn, dozen | 72 sold | $576 |
+
+- **Running low:** Butter, 6 lb left · Eggs, 12 dozen left · Whole milk, 9 gallons left.
+- **Sales, last 8 weekends:** the same series as the main TV, ending at $8,420 (last weekend $8,050).
+
 ### 7. Monthly options — `#monthly`
 
 **H2:** “Your monthly options”
