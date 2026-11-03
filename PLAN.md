@@ -79,8 +79,6 @@ Six linked cards, numbered 1–6, each jumping to its section. Three columns on 
 
 Use the diagram specification later in this plan.
 
-**Below the diagram:** “The farm store keeps running on Clover, exactly as it does now. You approve a read-only connection, and I bring its numbers in alongside everything else.”
-
 ### 4. Bank balances — `#banks`
 
 **H2:** “Your bank balances together”

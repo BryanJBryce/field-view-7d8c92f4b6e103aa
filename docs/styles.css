@@ -107,7 +107,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   container: wrap / inline-size;
 }
 
-.measure, .note, .reassure, .lead, .intro { max-width: 65ch; }
+.measure, .note, .lead, .intro { max-width: 65ch; }
 
 .nowrap { white-space: nowrap; }
 
@@ -493,14 +493,6 @@ a:hover { text-decoration-thickness: 0.14em; }
 
     .output { padding-block: 1.1rem; }
 }
-}
-
-.reassure {
-  padding: 1rem 1.25rem;
-  border-left: 4px solid var(--primary);
-  background: var(--surface-alt);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  font-weight: 600;
 }
 
 /* Shared: intro copy, two-column split, benefit points -------------- */
@@ -1369,7 +1361,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
   .bar__fill { background: CanvasText; forced-color-adjust: none; }
   .bar__track, .phone__body, .qgroup, .plan, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
-  .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band, .reassure { border: 1px solid CanvasText; }
+  .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }
   .trend__dot, .spark__dot, .cols span, .cols .cols__now, .rent__ticks i { background: CanvasText; box-shadow: none; forced-color-adjust: none; }
