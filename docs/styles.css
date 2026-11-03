@@ -1660,6 +1660,18 @@ a:hover { text-decoration-thickness: 0.14em; }
   .inclusive__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+/* Tax note under the all-inclusive panel: quiet, left-border card */
+.taxnote {
+  margin-top: 1rem;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface-alt);
+  color: var(--muted);
+}
+.taxnote h3 { font-size: 1.05em; color: var(--text); margin-bottom: 0.2rem; }
+.taxnote p { max-width: 70ch; overflow-wrap: break-word; }
+
 /* 9. Next steps --------------------------------------------------- */
 
 .steps {
@@ -1776,7 +1788,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
-  .phone__body, .qgroup, .plan, .inclusive, .step, .docs li, .ftile, .brief, .tile, .hbar__fill, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
+  .phone__body, .qgroup, .plan, .inclusive, .taxnote, .step, .docs li, .ftile, .brief, .tile, .hbar__fill, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }

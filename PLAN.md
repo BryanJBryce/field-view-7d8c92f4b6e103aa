@@ -216,6 +216,14 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 - **“Cloud servers”** — “Private cloud networks (VPCs) and the compute your assistant runs on.”
 - **“AI usage”** — “Up to $200 a month for the assistant.”
 
+**Below the all-inclusive panel, a quiet tax note** (light card with a blue left border, like the documents list in next steps):
+
+**H3 (small):** “A possible tax benefit”
+
+“Your fees for active development are a business expense, and the new work I build for you may also qualify for the federal R&D tax credit. Talk with your accountant about what you can claim. I’ll provide the documentation you need to file: what we built, when, and the technical problems we worked through.”
+
+Accuracy rules for this note: do not say that 100% of the fee qualifies for the R&D credit; do not quote percentages or dollar amounts of credit; do not promise the credit (keep “may also qualify” and the accountant line); keep it to active development (new work), not maintenance.
+
 Term, notice and on-site work belong in the agreement.
 
 ### 8. Next steps — `#next-steps`
