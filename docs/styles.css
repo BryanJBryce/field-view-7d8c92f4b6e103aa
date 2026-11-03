@@ -112,7 +112,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 .nowrap { white-space: nowrap; }
 
 /* Single-column grids must not grow past the viewport at large text sizes */
-.sources, .outputs, .overview, .qgroups, .split, .points, .tv-points, .plans, .needs {
+.sources, .outputs, .overview, .qgroups, .split, .points, .tv-points, .plans, .needs, .steps, .docs {
   grid-template-columns: minmax(0, 1fr);
 }
 
@@ -1249,16 +1249,64 @@ a:hover { text-decoration-thickness: 0.14em; }
   .plans { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; }
 }
 
-/* 9. From you ----------------------------------------------------- */
+/* 9. Next steps --------------------------------------------------- */
+
+.steps {
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.step {
+  counter-increment: step;
+  position: relative;
+  padding: 1.35rem 1.35rem 1.35rem 4.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 1.25rem;
+  top: 1.2rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.step h3 { font-size: 1.25em; margin: 0.2rem 0 0.35rem; }
+.step > p { color: var(--muted); max-width: 60ch; }
+
+.docs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.docs li {
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface-alt);
+  color: var(--muted);
+}
+.docs strong { display: block; color: var(--text); font-size: 1.05em; margin-bottom: 0.2rem; }
 
 .needs {
   display: grid;
-  gap: 0 3rem;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 0.75rem;
 }
 
 .needs li {
   position: relative;
-  padding: 0.75rem 0 0.75rem 2.4rem;
+  padding: 0.6rem 0 0.6rem 2.4rem;
   border-top: 1px solid var(--rule);
 }
 
@@ -1267,7 +1315,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   content: "";
   position: absolute;
   left: 0;
-  top: 0.9rem;
+  top: 0.75rem;
   width: 1.5rem;
   height: 1.5rem;
   border: 2px solid var(--primary);
@@ -1277,7 +1325,7 @@ a:hover { text-decoration-thickness: 0.14em; }
   content: "";
   position: absolute;
   left: 0.55rem;
-  top: 1.15rem;
+  top: 1rem;
   width: 0.35rem;
   height: 0.65rem;
   border-right: 2px solid var(--primary);
@@ -1286,7 +1334,12 @@ a:hover { text-decoration-thickness: 0.14em; }
 }
 
 @media (min-width: 48em) {
-  .needs { grid-template-columns: 1fr 1fr; }
+  .docs { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 26em) {
+  .step { padding: 4rem 1.1rem 1.25rem; }
+  .step::before { left: 1.1rem; top: 1.1rem; }
 }
 
 /* 10. Next step ---------------------------------------------------- */
@@ -1312,7 +1365,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 
 @media (forced-colors: active) {
   .button, .tag, .tv__flag, .overview__card { border: 2px solid ButtonText; }
-  .phone__body, .qgroup, .plan, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
+  .phone__body, .qgroup, .plan, .step, .docs li, .remote__chips li, .remote__composer, .remote__preview { border: 1px solid CanvasText; }
   .mini-phone__ask, .mini-phone__answer, .chat li, .tile, .tv__band { border: 1px solid CanvasText; }
   .trend__line, .spark polyline { stroke: CanvasText; forced-color-adjust: none; }
   .trend__grid { stroke: GrayText; forced-color-adjust: none; }

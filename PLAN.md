@@ -15,11 +15,11 @@ Use only the supplied client-facing scope and this brief. Do not consult additio
 Bryan's direction: “Focus on what he gets, not on contractual edge cases.” This overrides the earlier requirement to keep limits explicit on the page.
 
 - Lead with what Craig sees and uses: connected books, answers on his phone, the office TV dashboard, sample questions and the monthly options. Each gets its own section with a visual.
-- Every heading names something Craig gets. The only exceptions are “What I need from you” and “Let’s talk.”
+- Every heading names something Craig gets. The only exceptions are “Next steps” and “Let’s talk.”
 - Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term and cancellation; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
 - Pricing shows two plain options, active development and maintenance, with what each includes. No term, notice or allowance detail.
 - No 12-week plan, no “what we can build next” section, and no talk of starting with a few TV panels and growing. The TV shows all six companies at once.
-- “What I need from you” is a short, friendly list of access steps with no conditions.
+- “Next steps” opens with signing the master services agreement and statement of work, then a short, friendly list of access steps with no conditions.
 - No internal details on the page: percentages, hours, other clients or prior vendors.
 
 ### Revision: Craig's own goals
@@ -188,19 +188,23 @@ Two cards side by side on wide screens, stacked on phones. Active development is
 
 Term, notice, on-site work and usage allowance belong in the agreement.
 
-### 8. Client inputs — `#from-you`
+### 8. Next steps — `#next-steps`
 
-**H2:** “What I need from you”
+**H2:** “Next steps”
 
-**Intro:** “Just access to get started. I’ll walk you through each step.”
+Three numbered step cards, stacked. No checkboxes and no requests for passwords on the page.
 
-Simple list with small decorative check-outline icons. No checkboxes, no conditions, no requests for passwords on the page.
+1. **“Sign the agreements”** — “Two short documents, so we both know where we stand.” Two side-by-side notes (stacked on phones):
+   - **“Master services agreement”** — “The ground rules for working together: payment, confidentiality, how your data is handled, who owns the work, and how either of us can end it.”
+   - **“Statement of work”** — “This project specifically: what I’m building, which monthly option you’re on, and what’s included.”
+2. **“Give me access”** — “I’ll walk you through each one.” Check-outline list:
+   - “QuickBooks invites for Velocity Builders, Tiago LLC and Dirt Kings.”
+   - “Your OK on the read-only Clover connection.”
+   - “A short session together to connect your bank accounts.”
+   - “The Thirty Acres rent sheet or account.”
+3. **“Tell me what you want to see”** — “Your questions and what you want on the TV. Notes or a voice memo are fine.”
 
-- “QuickBooks invites for Velocity Builders, Tiago LLC and Dirt Kings.”
-- “Your OK on the read-only Clover connection.”
-- “A short session together to connect your bank accounts.”
-- “The Thirty Acres rent sheet or account.”
-- “Your questions and what you want on the TV. Notes or a voice memo are fine.”
+Describe what each agreement covers in plain words only; actual terms live in the documents themselves.
 
 ### 9. Next step — `#next-step`
 
@@ -346,7 +350,7 @@ Review the implementation against this checklist before any publication. Repeat 
 
 ### Content and scope
 
-- [ ] All 9 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
+- [ ] All 9 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “Next steps” and “Let’s talk.”
 - [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
 - [ ] Monthly options show active development at $3,000 / month and maintenance at $750 / month, with what each includes.
 - [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group company records, and up to 6 read-only bank accounts. No money movement is implied.
@@ -355,7 +359,7 @@ Review the implementation against this checklist before any publication. Repeat 
 - [ ] All ten questions are visible in four groups.
 - [ ] Copy echoes Craig’s kickoff goals in plain words: no direct quotes, no prior software vendor names, nothing private from the call. Clover is connected, not replaced.
 - [ ] No 12-week plan and no “what we can build next” section.
-- [ ] “What I need from you” is five short access items with no conditions and no request for passwords on the page.
+- [ ] “Next steps” starts with signing the master services agreement and statement of work, then access, then questions. No conditions and no request for passwords on the page.
 - [ ] CTA gives a reply path without a form, invented email, dummy button, embedded scheduler or contract-acceptance behavior.
 - [ ] First-person singular for Bryan; Craig is “you.” No percentages, hours, other clients or prior vendors. No em-dash-heavy or slogan copy.
 
