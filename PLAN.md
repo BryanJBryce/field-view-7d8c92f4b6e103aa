@@ -58,8 +58,6 @@ Pair the copy with a small phone and TV composition using the example cash figur
 
 **H2:** “What you get”
 
-**Intro:** “We start where you said to start: your finances, across all six companies. More can come later.”
-
 Five linked cards, numbered 1–5, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. H3s end with a decorative arrow.
 
 | # | H3 | Line | Links to |
