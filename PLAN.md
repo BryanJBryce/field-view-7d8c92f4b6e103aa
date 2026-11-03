@@ -16,7 +16,7 @@ Bryan's direction: “Focus on what he gets, not on contractual edge cases.” T
 
 - Lead with what Craig sees and uses: connected books, bank balances together, answers on his phone, the office TV dashboard, sample questions and the 12-week plan. Each gets its own section with a visual.
 - Every heading names something Craig gets. The only exceptions are “What I need from you” and “Let’s talk.”
-- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term, cancellation and maintenance option; AI usage allowance; the “Not included” list; and open items such as the Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
+- Contract detail moves to the written agreement, not this page: on-site rate, hours and terms; the initial term, cancellation and maintenance option; AI usage allowance; the “Not included” list; and open items such as the specific Bloomfield Property Group source, the media computer choice and conditional wording on Thirty Acres rent.
 - Price appears as one line, “$3,000 / month”, with one plain sentence about what continues each month.
 - “What I need from you” is a short, friendly list of access steps with no conditions.
 - No internal details on the page: percentages, hours, other clients or prior vendors.
@@ -266,8 +266,9 @@ Render the labels as real HTML in a figure, using CSS grid and decorative CSS or
 | Dirt Kings | QuickBooks Online |
 | Heritage Homestead LLC | Clover · read-only |
 | Thirty Acres LLC | Rent and expenses |
+| Bloomfield Property Group | Company records |
 
-All connectors are solid. There is no dashed “to confirm” style and no line key. Bloomfield Property Group is left off the page until its source is agreed; add it back as a solid node once it is.
+All connectors are solid. There is no dashed “to confirm” style and no line key. Bloomfield Property Group shows the generic label “Company records”; the specific source is settled in the agreement.
 
 Separate shared source beneath the company group:
 
@@ -279,7 +280,7 @@ Connect that shared source to the assistant once. Do not draw one bank account p
 
 **Output nodes:** “Your phone” / “Type or speak a question” and “Your office TV” / “See the same numbers”
 
-**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, and up to six bank accounts feed one assistant. You get the answers on your phone and the office TV.”
+**Accessible description:** “QuickBooks for Velocity Builders, Tiago LLC and Dirt Kings, Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group’s company records, and up to six bank accounts feed one assistant. You get the answers on your phone and the office TV.”
 
 On desktop, use sources at left, assistant in the middle, phone and TV at right. Stack the company nodes in one column within the source area. Connectors point toward the assistant; arrows then point outward to phone and TV. They indicate the proposed flow, not current operational status.
 
@@ -362,7 +363,7 @@ Review the implementation against this checklist before any publication. Repeat 
 - [ ] All 12 sections appear in the specified order with final wording. Every H2 names something Craig gets, except “What I need from you” and “Let’s talk.”
 - [ ] No contract detail on the page: no on-site rate or hours, initial term, cancellation, maintenance option, AI allowance, “Not included” list, “to confirm” or “if practical” caveats.
 - [ ] Price appears once, as “$3,000 / month”, with one plain sentence.
-- [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, and up to 6 read-only bank accounts. No money movement is implied.
+- [ ] Exactly three QuickBooks connections (Velocity Builders, Tiago LLC, Dirt Kings), read-only Clover for Heritage Homestead, Thirty Acres rent and expenses, Bloomfield Property Group company records, and up to 6 read-only bank accounts. No money movement is implied.
 - [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, four cash balances total $186,400, and the phone answers match the TV.
 - [ ] Bryan buys and sets up the computer for the office TV; it starts with 2 panels and grows to 4 or more. No TV brand names.
 - [ ] All ten questions are visible in four groups.
