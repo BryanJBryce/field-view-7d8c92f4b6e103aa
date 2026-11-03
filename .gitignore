@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local QA output (keep screenshots and reports out of the repo)
+qa/
+proposal-qa/
+screenshots/

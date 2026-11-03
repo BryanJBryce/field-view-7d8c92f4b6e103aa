@@ -1,0 +1,924 @@
+/* Craig Bloomfield proposal — Bryce Labs
+   Plain CSS, no build. Sections follow docs/index.html order. */
+
+:root {
+  color-scheme: light;
+
+  /* Velocity Builders blues and white (velocity.builders, verified 2026-11-03):
+     primary #2F5F99, navy #1C375A, accent #1B75BA, pale #D7EAFF.
+     Accent text is used only on white (4.9:1); on pale it is borders/lines only. */
+  --page: #ffffff;
+  --text: #1c375a;
+  --primary: #2f5f99;
+  --primary-dark: #1c375a;
+  --surface: #ffffff;
+  --surface-alt: #eef6ff;
+  --subtle: #d7eaff;
+  --muted: #375579;
+  --accent: #1b75ba;
+  --rule: #bcd3ec;
+  --line: #2f5f99;
+
+  --bezel: #0e1c2e;
+  --tv-bg: #1c375a;
+  --tv-panel: #24466f;
+  --tv-panel-rule: #3a6593;
+  --tv-text: #ffffff;
+  --tv-muted: #d7eaff;
+  --tv-flag: #9fd0ff;
+
+  --gutter: min(1.25rem, 6.25vw);
+  --section: 3.5rem;
+  --radius: 10px;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (min-width: 48em) {
+  :root { --gutter: min(2rem, 4.17vw); }
+}
+
+@media (min-width: 64em) {
+  :root { --gutter: min(3rem, 4.69vw); --section: 5.5rem; }
+}
+
+/* Base ------------------------------------------------------------ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: clamp(1.125rem, 1rem + 0.3vw, 1.3125rem);
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3 { line-height: 1.15; margin: 0; text-wrap: balance; }
+
+h1 {
+  font-size: min(clamp(2.4rem, 6vw, 5rem), 14vw);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+h3 { font-size: 1.15em; font-weight: 750; }
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a { color: var(--primary); text-underline-offset: 0.18em; text-decoration-thickness: 0.08em; }
+a:hover { text-decoration-thickness: 0.14em; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.money, .tv__total-value, .metric dd, .mini-tv__value, .mini-phone__answer {
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap; /* currency amounts never break across lines */
+}
+
+.wrap {
+  max-width: calc(80rem + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  /* Layout switches below also check the real content width in rem, so
+     enlarged text falls back to the stacked forms instead of overflowing. */
+  container: wrap / inline-size;
+}
+
+.measure, .note, .reassure, .lead { max-width: 65ch; }
+
+.nowrap { white-space: nowrap; }
+
+/* Single-column grids must not grow past the viewport at large text sizes */
+.sources, .outputs, .ticks, .deliverables, .questions, .phases, .price, .onsite, .later, .excluded, .needs, .tv__panel dl {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 1rem; }
+
+/* Buttons (links styled as actions) -------------------------------- */
+
+.button {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.6rem 1.35rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.button:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+
+.button--quiet {
+  min-height: 44px;
+  padding: 0.4rem 1rem;
+  background: transparent;
+  color: var(--primary);
+}
+.button--quiet:hover { background: var(--subtle); border-color: var(--primary); }
+
+/* Header ----------------------------------------------------------- */
+
+.site-header { border-bottom: 1px solid var(--rule); }
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding-block: 0.75rem;
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: 1.15em;
+  letter-spacing: -0.01em;
+}
+
+/* Sections --------------------------------------------------------- */
+
+.section { padding-block: var(--section); border-top: 1px solid var(--rule); }
+.section--tint { background: var(--subtle); border-top-color: transparent; }
+.section--tint + .section { border-top-color: transparent; }
+
+.note { color: var(--muted); }
+
+/* 1. Hero ---------------------------------------------------------- */
+
+.hero { container: hero / inline-size; }
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  padding-block: 2rem var(--section);
+}
+
+.eyebrow {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 { margin-bottom: 1rem; }
+
+.lead { font-size: 1.1em; margin-bottom: 1.5rem; }
+
+.hero__action { margin-bottom: 1.5rem; }
+
+.byline { color: var(--muted); font-weight: 600; }
+
+.hero__visual {
+  position: relative;
+  max-width: 34rem;
+  padding-top: 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  container-type: inline-size;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.85em;
+}
+
+.mini-tv {
+  padding: min(0.6rem, 3vw);
+  border-radius: 14px;
+  background: var(--bezel);
+}
+
+.mini-tv__screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  padding: min(1rem, 5vw) min(1.25rem, 6.25vw);
+  border-radius: 6px;
+  background: var(--tv-bg);
+  color: var(--tv-text);
+  container-type: inline-size;
+}
+
+.mini-tv__label { color: var(--tv-muted); font-size: 0.85em; }
+
+.mini-tv__value {
+  font-size: min(clamp(2rem, 1.2rem + 3vw, 3.25rem), 20cqw);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.mini-phone {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 14em);
+  /* Stacked: overlaps no more than the TV screen's bottom padding */
+  margin-top: calc(-1 * min(1rem, 5vw));
+  padding: 1.1rem 0.6rem 1.2rem;
+  border: 0.45rem solid var(--bezel);
+  border-radius: 22px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.75em;
+  line-height: 1.3;
+  box-shadow: 0 10px 24px rgb(28 55 90 / 0.2);
+}
+
+.mini-phone__ask {
+  align-self: flex-end;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px 10px 2px 10px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.mini-phone__answer {
+  align-self: flex-start;
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px 10px 10px 2px;
+  background: var(--subtle);
+  font-weight: 800;
+  font-size: 1.3em;
+}
+
+@container (min-width: 18em) {
+  .hero__visual { grid-template-columns: minmax(0, 1fr) min(1.25rem, 6.25vw) minmax(min-content, 38%); }
+  .mini-tv { grid-area: 1 / 1 / 2 / 3; margin-bottom: 1.5rem; }
+  /* Overlaps the TV only by its right screen padding, never its text */
+  .mini-phone {
+    grid-area: 1 / 2 / 2 / 4;
+    align-self: end;
+    width: auto;
+    margin-top: 0;
+    font-size: min(0.75em, 4.3cqw);
+  }
+}
+
+@media (min-width: 56em) {
+  @container hero (min-width: 52rem) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 3rem;
+      padding-top: 3.5rem;
+    }
+    .hero__visual { justify-self: end; width: 100%; }
+  }
+}
+
+/* 2. Diagram ------------------------------------------------------- */
+
+.diagram { margin: 0 0 2rem; }
+
+.flow { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+
+.sources {
+  --sgap: 0.6rem;
+  display: grid;
+  gap: var(--sgap);
+}
+
+.source, .output, .node {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.source__name, .output__name { display: block; font-weight: 750; }
+.source__via, .output__note { display: block; color: var(--muted); }
+
+.source--confirm {
+  border-style: dashed;
+  border-color: var(--accent);
+}
+.source--confirm .source__via { color: var(--accent); font-weight: 650; }
+
+.source--bank {
+  margin-top: 0.75rem;
+  background: var(--subtle);
+}
+
+.node--assistant {
+  padding: 1.1rem 1.25rem;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.outputs { display: grid; gap: 0.75rem; }
+
+@media (min-width: 30em) {
+  .outputs { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile connectors: one downward arrow between each step */
+.down-arrow {
+  display: block;
+  position: relative;
+  width: 3px;
+  height: 2.75rem;
+  margin: 0.4rem auto 0.65rem;
+  background: var(--line);
+}
+.down-arrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-right: 3px solid var(--line);
+  border-bottom: 3px solid var(--line);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Desktop: sources → assistant → outputs, left to right — only when the
+   content box is also wide enough at the current text size (else stacked). */
+@media (min-width: 64em) {
+@container wrap (min-width: 44rem) {
+    .flow {
+      --cgap: 5rem;
+      --half: 2.5rem;
+      --stroke: 3px;
+      grid-template-columns: minmax(0, 1.45fr) minmax(10rem, 0.55fr) minmax(0, 0.9fr);
+      column-gap: var(--cgap);
+      align-items: center;
+    }
+
+    .down-arrow { display: none; }
+
+    .flow__step { position: relative; }
+
+    .source, .output { position: relative; }
+
+    /* Stub from each source to the shared rail */
+    .source::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      width: calc(var(--half) + 2px);
+      border-top: var(--stroke) solid var(--line);
+      transform: translateY(-50%);
+    }
+    .source--confirm::after { border-top-style: dashed; border-top-color: var(--accent); }
+
+    /* Shared vertical rail, built from per-row segments */
+    .source::before {
+      content: "";
+      position: absolute;
+      left: calc(100% + 2px + var(--half) - var(--stroke) / 2);
+      top: calc(var(--sgap) / -2 - 2px);
+      bottom: calc(var(--sgap) / -2 - 2px);
+      border-left: var(--stroke) solid var(--line);
+    }
+    .source:first-child::before { top: 50%; }
+    .source:last-child::before { bottom: 50%; }
+    .source--bank::before { top: calc(var(--sgap) / -2 - 0.75rem - 2px); }
+
+    /* Rail → assistant */
+    .flow__assistant::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      width: var(--half);
+      border-top: var(--stroke) solid var(--line);
+      transform: translateY(-50%);
+    }
+    .node--assistant { position: relative; }
+    .node--assistant::before {
+      content: "";
+      position: absolute;
+      left: -0.95rem;
+      top: 50%;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-top: var(--stroke) solid var(--line);
+      border-right: var(--stroke) solid var(--line);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    /* Assistant → output rail */
+    .flow__assistant::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      width: var(--half);
+      border-top: var(--stroke) solid var(--line);
+      transform: translateY(-50%);
+    }
+
+    .outputs { grid-template-columns: 1fr; gap: 1.5rem; --ogap: 1.5rem; }
+
+    .output::before {
+      content: "";
+      position: absolute;
+      right: calc(100% + 2px);
+      top: 50%;
+      width: var(--half);
+      border-top: var(--stroke) solid var(--line);
+      transform: translateY(-50%);
+    }
+    .output::after {
+      content: "";
+      position: absolute;
+      right: calc(100% + 2px + var(--half) - var(--stroke) / 2);
+      top: calc(var(--ogap) / -2 - 2px);
+      bottom: calc(var(--ogap) / -2 - 2px);
+      border-left: var(--stroke) solid var(--line);
+    }
+    .output:first-child::after { top: 50%; }
+    .output:last-child::after { bottom: 50%; }
+
+    .output__name::before {
+      content: "";
+      position: absolute;
+      left: -0.95rem;
+      top: 50%;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-top: var(--stroke) solid var(--line);
+      border-right: var(--stroke) solid var(--line);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .output { padding-block: 1.1rem; }
+}
+}
+
+.line-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+}
+
+.line-key__item { display: inline-flex; align-items: center; gap: 0.6rem; }
+
+.line-key__sample {
+  display: inline-block;
+  width: min(2.5rem, 12.5vw);
+  flex-shrink: 0;
+  border-top: 3px solid var(--line);
+}
+.line-key__sample--dashed { border-top-style: dashed; border-top-color: var(--accent); }
+
+.reassure {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--primary);
+  background: var(--surface-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-weight: 600;
+}
+
+/* 3. Deliverables -------------------------------------------------- */
+
+.deliverables {
+  display: grid;
+  gap: 0 3rem;
+}
+
+.deliverables li {
+  padding-block: 1.25rem;
+  border-top: 2px solid var(--rule);
+}
+
+.deliverables h3 { margin-bottom: 0.35rem; }
+.deliverables p { color: var(--muted); max-width: 52ch; }
+
+@media (min-width: 48em) {
+  .deliverables { grid-template-columns: 1fr 1fr; }
+}
+
+/* 4. TV example ---------------------------------------------------- */
+
+.tv { margin: 0; }
+
+.tv__bezel {
+  padding: min(0.75rem, 3.75vw);
+  border-radius: 18px;
+  background: var(--bezel);
+  box-shadow: 0 18px 40px rgb(28 55 90 / 0.28);
+}
+
+.tv__screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  align-content: center;
+  padding: min(1.25rem, 6.25vw);
+  border-radius: 8px;
+  background: var(--tv-bg);
+  color: var(--tv-text);
+  container-type: inline-size;
+}
+
+.tv__flag {
+  justify-self: start;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--tv-flag);
+  border-radius: 8px;
+  color: var(--tv-flag);
+  font-weight: 700;
+}
+
+.tv__total p { margin: 0; }
+.tv__total-label { color: var(--tv-muted); font-weight: 600; font-size: 1.1em; }
+.tv__total-value {
+  font-size: min(clamp(2.6rem, 1.5rem + 5vw, 5.5rem), 20cqw);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.tv__total-note { color: var(--tv-muted); }
+
+.tv__panels { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+
+.tv__panel {
+  padding: min(1rem, 5vw) min(1.1rem, 5.5vw);
+  container-type: inline-size;
+  border-radius: var(--radius);
+  background: var(--tv-panel);
+  border: 1px solid var(--tv-panel-rule);
+}
+
+.tv__company { font-weight: 800; font-size: 1.1em; margin-bottom: 0.5rem; hyphens: auto; }
+
+.tv__panel dl { margin: 0; display: grid; gap: 0.6rem; }
+.metric dt { color: var(--tv-muted); }
+.metric dd { margin: 0; font-size: min(2em, 22cqw); font-weight: 800; line-height: 1.1; }
+.metric--other { padding-top: 0.6rem; border-top: 1px solid var(--tv-panel-rule); }
+.metric--other dd { font-size: min(1.35em, 22cqw); font-weight: 700; }
+
+.tv__stand {
+  width: 30%;
+  max-width: 14rem;
+  height: 0.9rem;
+  margin: 0 auto;
+  background: var(--bezel);
+  border-radius: 0 0 8px 8px;
+}
+
+.tv__caption { margin-top: 1.5rem; max-width: 65ch; }
+
+@media (min-width: 64em) {
+  .tv__bezel { padding: min(1.1rem, 1.75vw); border-radius: 22px; }
+  .tv__screen {
+    aspect-ratio: 16 / 9;
+    padding: min(2rem, 3.2vw) min(2.25rem, 3.6vw);
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    gap: 1.75rem;
+  }
+  .tv__total-value { font-size: min(clamp(4rem, 2rem + 4vw, 6.5rem), 20cqw); }
+}
+
+/* Panel columns follow the screen's own width in em (which follows the
+   text size), so each bank figure keeps room to stay on one line. */
+@container (min-width: 24em) {
+  .tv__panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container (min-width: 50em) {
+  .tv__panels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* 5. Questions ----------------------------------------------------- */
+
+.questions {
+  counter-reset: q;
+  display: grid;
+  gap: 0 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.questions li {
+  counter-increment: q;
+  position: relative;
+  padding: 0.85rem 0 0.85rem 2.75rem;
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+}
+
+.questions li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 2rem;
+  color: var(--accent);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.condition {
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  border: 1px dashed var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  font-weight: 650;
+  font-size: 0.9em;
+}
+
+@media (min-width: 56em) {
+  .questions {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+  }
+}
+
+/* 6. Timeline ------------------------------------------------------ */
+
+.phases {
+  display: grid;
+  gap: 2rem;
+  margin-block: 2rem;
+}
+
+.phase {
+  padding-top: 1rem;
+  border-top: 5px solid var(--primary);
+}
+
+.phase h3 { font-size: 1.35em; margin-bottom: 0.75rem; }
+
+.weeks li {
+  padding-block: 0.65rem;
+  border-bottom: 1px solid var(--rule);
+}
+.weeks li:last-child { border-bottom: 0; }
+
+.week {
+  display: block;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.9em;
+}
+
+.done {
+  max-width: 65ch;
+  padding: 1rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+
+@media (min-width: 56em) {
+  .phases { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+}
+
+/* 7. Monthly ------------------------------------------------------- */
+
+.price {
+  display: grid;
+  gap: 1.5rem 3rem;
+  padding: min(1.5rem, 7.5vw);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+.price__amount {
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.price__amount .money { font-size: min(clamp(3rem, 2rem + 4vw, 4.5rem), 15vw); letter-spacing: -0.02em; }
+.price__unit { font-size: 1.4em; color: var(--muted); }
+
+.price__term { font-weight: 700; font-size: 1.1em; }
+
+.ticks { display: grid; gap: 0.6rem; margin-bottom: 1.25rem; }
+
+.ticks li { position: relative; padding-left: 2rem; }
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.3em;
+  width: 0.45rem;
+  height: 0.8rem;
+  border-right: 3px solid var(--primary);
+  border-bottom: 3px solid var(--primary);
+  transform: rotate(45deg);
+}
+
+.maintenance {
+  margin-top: 1.25rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.maintenance__title { font-weight: 750; margin-bottom: 0.35rem; }
+.maintenance p:last-child { color: var(--muted); max-width: 65ch; }
+
+@media (min-width: 56em) {
+  @container wrap (min-width: 40rem) {
+    .price { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); padding: 2rem 2.25rem; }
+  }
+}
+
+/* 8. On-site ------------------------------------------------------- */
+
+.onsite { display: grid; gap: 1rem 3rem; }
+.onsite p { max-width: 60ch; }
+
+.onsite__rate {
+  font-weight: 800;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+.onsite__rate .money { font-size: 1.4em; }
+
+@media (min-width: 56em) {
+  .onsite { grid-template-columns: 1fr 1fr; }
+}
+
+/* 9. What comes next ----------------------------------------------- */
+
+.later {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.later li {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: var(--surface-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.later strong { display: block; font-size: 1.1em; }
+
+@media (min-width: 48em) {
+  .later { grid-template-columns: 1fr 1fr; }
+}
+
+.subhead { margin: 2.5rem 0 1rem; }
+
+.excluded {
+  display: grid;
+  gap: 0 3rem;
+}
+
+.excluded li {
+  position: relative;
+  padding: 0.6rem 0 0.6rem 1.75rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+}
+.excluded li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 1.35em;
+  width: 0.85rem;
+  border-top: 2px solid var(--muted);
+}
+
+@media (min-width: 48em) {
+  .excluded { grid-template-columns: 1fr 1fr; }
+}
+
+/* 10. From you ----------------------------------------------------- */
+
+.needs {
+  display: grid;
+  gap: 0 3rem;
+}
+
+.needs li {
+  position: relative;
+  padding: 0.75rem 0 0.75rem 2.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Decorative check outline: circle + tick */
+.needs li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+.needs li::after {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 1.15rem;
+  width: 0.35rem;
+  height: 0.65rem;
+  border-right: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  transform: rotate(45deg);
+}
+
+@media (min-width: 48em) {
+  .needs { grid-template-columns: 1fr 1fr; }
+}
+
+/* 11. Next step ---------------------------------------------------- */
+
+.section--closing {
+  background: var(--primary);
+  /* Echoes the reference site's navy-to-blue buttons; stops kept dark enough for white text */
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff;
+  border-top: 0;
+}
+
+.section--closing h2 { color: #fff; }
+
+.cta {
+  font-size: clamp(1.6rem, 1.1rem + 2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 30ch;
+}
+
+.site-footer {
+  padding-block: 1.5rem;
+  background: var(--primary-dark);
+  color: var(--tv-muted);
+  font-size: 0.9em;
+}
+
+/* Forced colors ---------------------------------------------------- */
+
+@media (forced-colors: active) {
+  .button, .tag, .tv__flag, .condition { border: 2px solid ButtonText; }
+  .mini-phone__ask, .mini-phone__answer, .tv__panel, .done, .reassure, .later li { border: 1px solid CanvasText; }
+  .source::before, .source::after, .output::before, .output::after,
+  .flow__assistant::before, .flow__assistant::after,
+  .node--assistant::before, .output__name::before,
+  .down-arrow, .down-arrow::after, .line-key__sample {
+    border-color: CanvasText;
+    forced-color-adjust: none;
+  }
+  .down-arrow { background: CanvasText; }
+}
