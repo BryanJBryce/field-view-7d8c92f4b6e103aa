@@ -21,6 +21,19 @@ Bryan's direction: “Focus on what he gets, not on contractual edge cases.” T
 - “What I need from you” is a short, friendly list of access steps with no conditions.
 - No internal details on the page: percentages, hours, other clients or prior vendors.
 
+### Revision: Craig's own goals
+
+Copy is framed around what Craig said he wants in the October 28 kickoff. The kickoff notes stay out of this repo. Echo these goals in plain words; never quote him, name a prior software vendor, or include anything private from the call (family, staff, other people, personal finances).
+
+- Lead his companies without having to be there or check up on them.
+- Know where each company stands, with every company's numbers in one place.
+- Ask from anywhere (out on the property, in the truck, between meetings) by voice or text.
+- One big office TV split by company, instead of a screen per company, so he and his operators look at the same numbers.
+- Start with finances, then build on it.
+- See what came in and went out of the bank accounts.
+- A summary of each weekend at the farm store, which is open on weekends. Clover stays as the store runs it; it is connected, not replaced.
+- Later: email, the construction pipeline, and which company owns which equipment and property.
+
 The sections below supply final visible wording. Layout instructions and technical notes are for the implementer and must not appear as page copy.
 
 ## Information architecture and final copy
@@ -31,9 +44,9 @@ Use this order. Anchor links are optional navigation aids, not separate pages. H
 
 **Small identification:** “Prepared for Craig Bloomfield”
 
-**H1:** “All your companies’ numbers in one place.”
+**H1:** “Know how every company is doing, without being there.”
 
-**Body:** “I’ll connect the systems you already use, so you can ask a question from your phone and see the same numbers on your office TV.”
+**Body:** “You want to spend your time leading your companies, not checking up on them. I’ll connect the systems you already use so the numbers come to you: on your phone wherever you are, and on the big TV in your office.”
 
 **Primary link:** “See what you get” → `#what-you-get`
 
@@ -43,28 +56,30 @@ Pair the copy with a small phone and TV composition using the example cash figur
 
 ### 2. Overview — `#what-you-get`
 
-**H2:** “What you get”
+**H2:** “What you asked for, and what you get”
 
-Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. Card H3s end with a decorative arrow.
+**Intro:** “We start where you said to start: your finances, across all six companies. More can come later.”
 
-| # | H3 | Line | Links to |
-| --- | --- | --- | --- |
-| 1 | “Your books, connected” | “QuickBooks and Clover feed one place, for all your companies.” | `#one-place` |
-| 2 | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
-| 3 | “Answers on your phone” | “Type or speak a question. Get a straight answer.” | `#phone` |
-| 4 | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
-| 5 | “Your office TV dashboard” | “Your companies on the wall, kept up to date.” | `#tv-example` |
-| 6 | “Your 12-week plan” | “First answers in week 2. Everything checked by week 12.” | `#timeline` |
+Six linked cards, numbered 1–6, each jumping to its section. Three columns on wide screens, two on tablets, one on phones. Each card has a small accent “You wanted” line above the H3; H3s end with a decorative arrow.
+
+| # | You wanted | H3 | Line | Links to |
+| --- | --- | --- | --- | --- |
+| 1 | “You wanted every company’s numbers in one place.” | “Your books, connected” | “QuickBooks and Clover feed one assistant. No logging in to each system.” | `#one-place` |
+| 2 | “You wanted to see what’s coming in and going out.” | “Your bank balances together” | “Up to 6 bank accounts in one total, read-only.” | `#banks` |
+| 3 | “You wanted to ask from anywhere.” | “Answers on your phone” | “Say or type a question. Get a straight answer.” | `#phone` |
+| 4 | “You wanted answers, not reports.” | “Questions you can ask” | “Cash, bills, sales, profit, the farm store and rent.” | `#questions` |
+| 5 | “You wanted one big screen instead of six.” | “Your office TV dashboard” | “Each company gets its own panel on one TV.” | `#tv-example` |
+| 6 | “You wanted to get started, then build on it.” | “Your 12-week plan” | “First answers in week 2. Everything checked by week 12.” | `#timeline` |
 
 ### 3. Books connected — `#one-place`
 
 **H2:** “Your books, connected”
 
-**Intro:** “You keep using QuickBooks, Clover and your banks the way you do today. I connect them to one assistant that you can ask from your phone and see on your office TV.”
+**Intro:** “Right now each company’s numbers live in a different place. You keep using QuickBooks, Clover and your banks the way you do today. I connect them to one assistant, so the answers are in one spot.”
 
 Use the diagram specification later in this plan.
 
-**Below the diagram:** “You approve a read-only Clover connection, and Clover stays exactly as you run it.”
+**Below the diagram:** “The farm store keeps running on Clover, exactly as it does now. You approve a read-only connection, and I bring its numbers in alongside everything else.”
 
 ### 4. Bank balances — `#banks`
 
@@ -83,11 +98,11 @@ Two columns on wide screens: a white card with the example balances, and the ben
 
 Bars are decorative (`aria-hidden`); names and values are text.
 
-**Intro:** “One number for all your cash, and the balance for each company underneath it. No more logging in to each bank.”
+**Intro:** “One number for all your cash, the balance for each company underneath it, and what came in and went out. No logging in to each bank to find out.”
 
 **Points (tick icons):**
 
-- “**Up to 6 bank accounts** in one view.”
+- “**Up to 6 bank accounts** in one view, across your companies.”
 - “**Read-only.** Nothing can move money.”
 - “**Your password stays yours.** I never see or store it.”
 
@@ -97,11 +112,11 @@ Bars are decorative (`aria-hidden`); names and values are text.
 
 Benefit copy beside a CSS phone mockup with a static conversation. No input field or chat controls.
 
-**Intro:** “Ask the way you’d ask your bookkeeper. Type it or say it, and get an answer from your connected numbers, wherever you are.”
+**Intro:** “Out on the property, in the truck or between meetings, just ask. Say it or type it, and get an answer from your connected numbers without going into the office.”
 
 **Points:**
 
-- “**Plain English.** No reports to run or menus to learn.”
+- “**Talk to it like a person.** No reports to run or menus to learn.”
 - “**All your companies at once,** or one at a time.”
 - “**The same numbers** you see on the office TV.”
 
@@ -111,20 +126,20 @@ Benefit copy beside a CSS phone mockup with a static conversation. No input fiel
 | --- | --- |
 | “How much cash is in my connected bank accounts?” | “$186,400 across four companies. Velocity Builders has the most, at $94,200.” |
 | “How much is past due for Velocity?” | “$12,800 in past-due invoices.” |
-| “How did the farm store do this week?” | “$8,420 in sales at Heritage Homestead.” |
+| “How did the farm store do this weekend?” | “$8,420 in sales at Heritage Homestead.” |
 
 ### 6. Questions — `#questions`
 
 **H2:** “Questions you can ask”
 
-**Intro:** “Here are the kinds of questions I’ll set up first. We’ll pick your starter list together, and I’ll check every answer before you rely on it.”
+**Intro:** “These are the kinds of things you said you want to know. We’ll pick your starter list together, and I’ll check every answer before you rely on it.”
 
 Four grouped cards (two columns on wide screens), each question with a small decorative speech-bubble marker. All ten visible.
 
 - **Cash:** “How much cash is in my connected bank accounts?” · “What’s the cash balance for each company?” · “What money moved between my connected accounts this week?”
 - **Money owed:** “Who owes Velocity, Tiago and Dirt Kings money, and how much is past due?” · “What bills do my companies owe in the next 30 days?”
 - **Sales and results:** “What did Velocity Builders do in sales this month?” · “What did each company make or lose this month and year to date?” · “What were the biggest expenses across the companies this month?”
-- **Farm store and rent:** “How did the farm store do this week: sales, top sellers and anything running low?” · “Did both Thirty Acres tenants pay rent this month?”
+- **Farm store and rent:** “How did the farm store do this weekend: sales, top sellers and anything running low?” · “Did both Thirty Acres tenants pay rent this month?”
 
 The transfer question asks about recorded activity; it must never look like a command to move money.
 
@@ -132,7 +147,7 @@ The transfer question asks about recorded activity; it must never look like a co
 
 **H2:** “Your office TV dashboard”
 
-**Intro:** “Your companies on the wall, so you and your team can see where things stand without asking.”
+**Intro:** “One big screen instead of six, split by company. When your operators come in to meet, you’re all looking at the same numbers.”
 
 **Visible label, inside the mock TV:** “Example data, not your accounts”
 
@@ -146,7 +161,7 @@ Build a landscape TV silhouette using HTML/CSS, with a restrained dark bezel. It
 | Tiago LLC panel | Bank cash | $38,100 |
 | Dirt Kings panel | Bank cash | $24,700 |
 | Heritage Homestead LLC panel | Bank cash | $29,400 |
-| Heritage Homestead LLC panel | Farm store sales this week | $8,420 |
+| Heritage Homestead LLC panel | Farm store sales this weekend | $8,420 |
 
 **Inside the TV, beneath the total:** “Four companies shown in this example.”
 
@@ -154,7 +169,7 @@ Build a landscape TV silhouette using HTML/CSS, with a restrained dark bezel. It
 
 - “**I set it up for you.** I buy and set up the computer that runs your TV.”
 - “**It grows with you.** Start with 2 company panels and grow to 4 or more.”
-- “**You choose what’s on it.** Cash, money owed, sales, whatever you check most.”
+- “**You choose what’s on it.** Cash, money owed, sales, whatever you want your team to see.”
 
 The four bank cash values sum to $186,400. Receivables and Clover sales are separate measures and are not added to cash. No fake timestamp or connection status. On narrow screens, let the bezel stretch vertically and stack the panels.
 
@@ -162,7 +177,7 @@ The four bank cash values sum to $186,400. Receivables and Clover sales are sepa
 
 **H2:** “Your 12-week plan”
 
-**Intro:** “Week 1 starts as soon as I have access to your accounts. You’ll see working answers early and more every few weeks.”
+**Intro:** “Finances first, the way you wanted. Week 1 starts as soon as I have access to your accounts, and you’ll see working answers early.”
 
 Three phases side by side on desktop, stacked on phones. Each H3 carries a small week range above the phase name, and each phase ends with a pale “You’ll have” box.
 
@@ -174,7 +189,7 @@ Three phases side by side on desktop, stacked on phones. Each H3 carries a small
 | | 4 | “Demo of your first 2 TV panels.” |
 | | You’ll have | “answers on your phone and a first look at your TV.” |
 | Answer (Weeks 5–8) | 5 | “Set up the TV in your office.” |
-| | 6 | “Farm store weekly summary and Thirty Acres rent tracking.” |
+| | 6 | “Farm store weekend summary and Thirty Acres rent tracking.” |
 | | 7 | “Check the starter questions and fix any wrong answers.” |
 | | 8 | “Grow the dashboard to 4 or more company panels.” |
 | | You’ll have | “the TV running in your office with all your main companies.” |
@@ -197,10 +212,13 @@ Nothing else. Term, on-site work, maintenance option and usage allowance belong 
 
 **H2:** “What we can build next”
 
-**Intro:** “Once this is running, you pick what we work on next. Two ideas for later:”
+**Intro:** “You mentioned more you’d like this to do. Once your finances are running, you pick what we add next.”
 
-- **“Email triage”** — “Help staying on top of your inbox.”
-- **“Construction pipeline”** — “Homes under construction, spec homes and days on market.”
+Three cards in a row on wide screens:
+
+- **“Email”** — “The important messages pulled out for you, so you’re not sorting through all of them.”
+- **“Construction pipeline”** — “Homes under construction, spec homes and how long each has been on the market.”
+- **“Equipment and property”** — “Which company owns what, and when it’s due for service.”
 
 ### 11. Client inputs — `#from-you`
 
@@ -367,6 +385,7 @@ Review the implementation against this checklist before any publication. Repeat 
 - [ ] Hero, bank card, phone mockup and TV all say example data; the TV says “not your accounts.” Values match this plan, four cash balances total $186,400, and the phone answers match the TV.
 - [ ] Bryan buys and sets up the computer for the office TV; it starts with 2 panels and grows to 4 or more. No TV brand names.
 - [ ] All ten questions are visible in four groups.
+- [ ] Copy echoes Craig’s kickoff goals in plain words: no direct quotes, no prior software vendor names, nothing private from the call. Clover is connected, not replaced.
 - [ ] Each timeline phase ends with a “You’ll have” outcome.
 - [ ] “What I need from you” is five short access items with no conditions and no request for passwords on the page.
 - [ ] CTA gives a reply path without a form, invented email, dummy button, embedded scheduler or contract-acceptance behavior.
